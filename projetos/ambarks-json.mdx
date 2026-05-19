@@ -1,0 +1,104 @@
+---
+title: "Como usar ambarks.json"
+description: "Configure comandos de instalacao, build e start do seu projeto."
+---
+
+# Como usar ambarks.json
+
+O arquivo `ambarks.json` permite dizer ao AmbarksCloud como preparar e iniciar seu projeto quando o comportamento automatico nao e suficiente.
+
+Crie o arquivo na raiz do projeto:
+
+```text
+meu-projeto/
+  ambarks.json
+  package.json
+  src/
+```
+
+Tambem e aceito o nome `ambarks.config.json`.
+
+## Exemplo completo
+
+```json
+{
+  "build": {
+    "installCommand": "npm ci",
+    "buildCommand": "npm run build"
+  },
+  "run": {
+    "command": "npm run start"
+  }
+}
+```
+
+## Campos aceitos
+
+| Campo | Uso |
+| --- | --- |
+| `build.installCommand` | Comando para instalar dependencias |
+| `build.install` | Atalho alternativo para comando de instalacao |
+| `build.buildCommand` | Comando para gerar build |
+| `build.command` | Atalho alternativo para comando de build |
+| `run.command` | Comando usado para iniciar a aplicacao |
+
+## Exemplos por runtime
+
+### Node.js
+
+```json
+{
+  "build": {
+    "installCommand": "npm ci",
+    "buildCommand": "npm run build"
+  },
+  "run": {
+    "command": "npm run start"
+  }
+}
+```
+
+### Python com FastAPI
+
+```json
+{
+  "build": {
+    "installCommand": "pip install --no-cache-dir -r requirements.txt"
+  },
+  "run": {
+    "command": "uvicorn main:app --host 0.0.0.0 --port 8000"
+  }
+}
+```
+
+### Site estatico com build
+
+```json
+{
+  "build": {
+    "installCommand": "npm ci",
+    "buildCommand": "npm run build"
+  },
+  "run": {
+    "command": "npm run preview -- --host 0.0.0.0"
+  }
+}
+```
+
+## Regras importantes
+
+- O JSON precisa ser valido.
+- O arquivo deve estar na raiz do projeto enviado.
+- O comando de start deve manter o processo rodando.
+- Servidores web devem escutar em `0.0.0.0`.
+- A porta usada pelo comando deve bater com a porta interna configurada no projeto.
+
+## Quando nao usar
+
+Se seu projeto precisa instalar pacotes do sistema, copiar arquivos para pastas especificas ou usar varias etapas de build, prefira Dockerfile.
+
+## Links relacionados
+
+- [Runtimes suportados](/projetos/runtimes)
+- [Dockerfile personalizado](/projetos/dockerfile)
+- [Portas e dominios](/projetos/portas-dominios)

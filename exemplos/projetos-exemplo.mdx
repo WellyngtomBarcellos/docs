@@ -1,0 +1,136 @@
+---
+title: "Exemplos praticos"
+description: "Modelos simples de projetos prontos para deploy."
+---
+
+# Exemplos praticos
+
+Use estes exemplos como referencia para organizar seu projeto antes de enviar pelo dashboard.
+
+## Node.js
+
+Estrutura:
+
+```text
+node-app/
+  package.json
+  server.js
+  ambarks.json
+```
+
+`package.json`:
+
+```json
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}
+```
+
+`server.js`:
+
+```js
+import http from "node:http";
+
+const port = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { "content-type": "text/plain" });
+  res.end("AmbarksCloud OK");
+}).listen(port, "0.0.0.0");
+```
+
+`ambarks.json`:
+
+```json
+{
+  "build": {
+    "installCommand": "npm install"
+  },
+  "run": {
+    "command": "npm start"
+  }
+}
+```
+
+Configure a porta interna como `3000`.
+
+## Python com FastAPI
+
+Estrutura:
+
+```text
+python-app/
+  requirements.txt
+  main.py
+  ambarks.json
+```
+
+`requirements.txt`:
+
+```txt
+fastapi
+uvicorn
+```
+
+`main.py`:
+
+```py
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"ok": True}
+```
+
+`ambarks.json`:
+
+```json
+{
+  "build": {
+    "installCommand": "pip install --no-cache-dir -r requirements.txt"
+  },
+  "run": {
+    "command": "uvicorn main:app --host 0.0.0.0 --port 8000"
+  }
+}
+```
+
+Configure a porta interna como `8000`.
+
+## Site estatico
+
+Estrutura:
+
+```text
+site/
+  index.html
+```
+
+`index.html`:
+
+```html
+<h1>Publicado no AmbarksCloud</h1>
+```
+
+Configure a porta interna como `80`.
+
+## Enviar por ZIP
+
+Compacte a pasta do projeto:
+
+```bash
+zip -r node-app.zip node-app
+```
+
+Depois, envie o ZIP no fluxo `Arquivo ZIP` do dashboard.
+
+## Links relacionados
+
+- [Deploy via ZIP](/projetos/deploy-zip)
+- [Runtimes suportados](/projetos/runtimes)
+- [Como usar ambarks.json](/projetos/ambarks-json)

@@ -1,0 +1,39 @@
+---
+title: "AmbarksCloud Center"
+description: "Aprenda a publicar seus projetos pelo dashboard do AmbarksCloud."
+---
+
+# AmbarksCloud Center
+
+AmbarksCloud Center e uma plataforma para publicar aplicacoes sem configurar servidor manualmente. Pelo dashboard, voce cria um projeto, envia seu codigo por ZIP ou GitHub, define variaveis de ambiente, acompanha logs e gerencia o container da aplicacao.
+
+## O que voce consegue fazer
+
+| Recurso | Para que serve |
+| --- | --- |
+| Projeto | Guarda as configuracoes da aplicacao que sera publicada |
+| Deploy por ZIP | Envia um arquivo compactado direto pelo dashboard |
+| Deploy por GitHub | Conecta um repositorio e publica a partir de uma branch |
+| Runtimes automaticos | Publica projetos Node.js, Python, Rust, PHP e sites estaticos sem Dockerfile |
+| `ambarks.json` | Define comandos de instalacao, build e start quando o padrao nao serve |
+| Dockerfile | Permite controlar totalmente como a aplicacao e preparada |
+| Variaveis de ambiente | Guarda configuracoes e secrets usados no deploy |
+| Logs e metricas | Ajuda a diagnosticar build, start e consumo da aplicacao |
+
+## Fluxo recomendado
+
+1. Prepare o projeto localmente.
+2. Garanta que ele tenha um comando de start.
+3. Configure a porta usada pela aplicacao.
+4. Adicione `ambarks.json` se precisar customizar comandos.
+5. Envie por ZIP ou conecte o GitHub.
+6. Acompanhe os logs ate o deploy ficar em execucao.
+
+## Proximos passos
+
+- [Guia rapido](/inicio/quickstart)
+- [Criando projetos](/projetos/criando-projetos)
+- [Deploy via ZIP](/projetos/deploy-zip)
+- [Deploy via GitHub](/projetos/deploy-github)
+- [Runtimes suportados](/projetos/runtimes)
+- [Como usar ambarks.json](/projetos/ambarks-json)

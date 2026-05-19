@@ -1,0 +1,57 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "AmbarksCloud Center",
+  "favicon": "/favicon.ico",
+  "colors": {
+    "primary": "#2563eb",
+    "light": "#f8fafc",
+    "dark": "#0f172a"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Comece aqui",
+        "pages": [
+          "index",
+          "inicio/quickstart"
+        ]
+      },
+      {
+        "group": "Deploy pelo dashboard",
+        "pages": [
+          "projetos/criando-projetos",
+          "projetos/deploy-zip",
+          "projetos/deploy-github"
+        ]
+      },
+      {
+        "group": "Configure seu projeto",
+        "pages": [
+          "projetos/runtimes",
+          "projetos/ambarks-json",
+          "projetos/dockerfile",
+          "projetos/variaveis-ambiente",
+          "projetos/portas-dominios"
+        ]
+      },
+      {
+        "group": "Gerencie sua aplicacao",
+        "pages": [
+          "projetos/logs-metricas",
+          "projetos/containers",
+          "projetos/billing-limites"
+        ]
+      },
+      {
+        "group": "Ajuda",
+        "pages": [
+          "exemplos/projetos-exemplo",
+          "troubleshooting/common-errors",
+          "faq",
+          "glossario"
+        ]
+      }
+    ]
+  }
+}

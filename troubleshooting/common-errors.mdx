@@ -1,0 +1,68 @@
+---
+title: "Erros comuns"
+description: "Como resolver falhas frequentes de deploy."
+---
+
+# Erros comuns
+
+Use esta pagina para diagnosticar problemas comuns ao publicar uma aplicacao.
+
+## Deploy fica pendente por muito tempo
+
+O que fazer:
+
+- Atualize a pagina e confira se houve mudanca de status.
+- Veja os logs do projeto.
+- Tente iniciar um novo deploy.
+- Se persistir, entre em contato com o suporte informando o nome do projeto.
+
+## Build falhou
+
+Verifique:
+
+- Dependencias foram incluidas corretamente.
+- Lockfiles estao presentes quando usados pelo projeto.
+- O comando de instalacao em `ambarks.json` funciona localmente.
+- O projeto nao depende de arquivos que ficaram fora do ZIP ou do repositorio.
+
+## Comando de start falhou
+
+Verifique:
+
+- `run.command` em `ambarks.json`.
+- Script `start` no `package.json`, se for Node.js.
+- Arquivo de entrada, como `main.py`, `server.js` ou equivalente.
+- Variaveis de ambiente exigidas pela aplicacao.
+
+## Deploy conclui, mas site nao abre
+
+Verifique:
+
+- Porta interna configurada no projeto.
+- Porta usada pelo comando de start.
+- `EXPOSE` no Dockerfile, se houver.
+- Se a aplicacao escuta em `0.0.0.0`.
+
+## Variavel de ambiente nao aparece
+
+Verifique:
+
+- Se a variavel foi salva no projeto correto.
+- Se houve novo deploy apos a alteracao.
+- Se o nome da variavel esta igual ao esperado pelo codigo.
+- Se ela precisa estar disponivel durante o build.
+
+## Repositorio GitHub nao publica
+
+Verifique:
+
+- Se a conta GitHub esta conectada.
+- Se o repositorio ainda existe e voce tem permissao.
+- Se a branch selecionada contem os arquivos do projeto.
+- Se o projeto privado continua acessivel pela integracao.
+
+## Links relacionados
+
+- [Logs e metricas](/projetos/logs-metricas)
+- [Portas e dominios](/projetos/portas-dominios)
+- [Como usar ambarks.json](/projetos/ambarks-json)

@@ -1,0 +1,63 @@
+---
+title: "Dockerfile personalizado"
+description: "Use Dockerfile quando quiser controlar todo o processo de deploy."
+---
+
+# Dockerfile personalizado
+
+Um Dockerfile e opcional, mas e a melhor escolha quando seu projeto precisa de comandos, dependencias ou configuracoes que passam do runtime automatico.
+
+## Quando usar
+
+- A aplicacao precisa de pacotes do sistema.
+- O build tem mais de uma etapa.
+- A linguagem nao esta nos runtimes automaticos.
+- Voce precisa escolher uma imagem base especifica.
+- O comando de start depende de arquivos ou binarios gerados.
+
+## Exemplo Node.js
+
+```dockerfile
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+## Exemplo Python
+
+```dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["python", "main.py"]
+```
+
+## Boas praticas
+
+- Use `EXPOSE` com a porta em que a aplicacao escuta.
+- Configure o projeto no dashboard com a mesma porta.
+- Nao escute apenas em `localhost`; use `0.0.0.0`.
+- Adicione `.dockerignore` para evitar arquivos pesados.
+- Prefira lockfiles para builds previsiveis.
+
+## Dockerfile em outro caminho
+
+Se o Dockerfile nao estiver na raiz, informe o caminho no campo de Dockerfile do projeto, por exemplo:
+
+```text
+docker/Dockerfile
+```
+
+## Links relacionados
+
+- [Runtimes suportados](/projetos/runtimes)
+- [Como usar ambarks.json](/projetos/ambarks-json)
+- [Portas e dominios](/projetos/portas-dominios)

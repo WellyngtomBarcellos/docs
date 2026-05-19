@@ -1,0 +1,56 @@
+---
+title: "Variaveis de ambiente"
+description: "Configure secrets e parametros usados pela aplicacao."
+---
+
+# Variaveis de ambiente
+
+Variaveis de ambiente servem para configurar sua aplicacao sem colocar dados sensiveis no codigo. Use para URLs, tokens, credenciais, flags e configuracoes por ambiente.
+
+## Criar variavel
+
+1. Abra o projeto no dashboard.
+2. Acesse a area de variaveis.
+3. Clique para adicionar uma nova variavel.
+4. Informe chave e valor.
+5. Marque como secret quando o valor for sensivel.
+6. Salve e faca um novo deploy para aplicar.
+
+## Campos
+
+| Campo | Descricao |
+| --- | --- |
+| Chave | Nome da variavel, como `DATABASE_URL` |
+| Valor | Conteudo usado pela aplicacao |
+| Secret | Mascara o valor no dashboard |
+| Build arg | Disponibiliza a variavel durante o build quando necessario |
+
+## Boas praticas
+
+- Use nomes em caixa alta, como `DATABASE_URL`, `APP_ENV` e `API_KEY`.
+- Nao envie secrets dentro do repositorio ou ZIP.
+- Faca novo deploy apos alterar variaveis usadas pela aplicacao.
+- Use valores diferentes para teste e producao.
+
+## Exemplos comuns
+
+| Variavel | Exemplo |
+| --- | --- |
+| `PORT` | `3000` |
+| `NODE_ENV` | `production` |
+| `DATABASE_URL` | URL de conexao com banco |
+| `APP_URL` | URL publica da aplicacao |
+
+## Problemas comuns
+
+| Sintoma | O que verificar |
+| --- | --- |
+| App nao reconhece a variavel | Confirme se houve novo deploy |
+| Valor aparece mascarado | Variavel marcada como secret |
+| Build falha por variavel ausente | Marque como build arg quando ela for usada durante o build |
+
+## Links relacionados
+
+- [Deploy via GitHub](/projetos/deploy-github)
+- [Deploy via ZIP](/projetos/deploy-zip)
+- [Logs e metricas](/projetos/logs-metricas)

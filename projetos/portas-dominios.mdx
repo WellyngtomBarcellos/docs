@@ -1,0 +1,64 @@
+---
+title: "Portas e dominios"
+description: "Configure a porta interna para sua aplicacao ficar acessivel."
+---
+
+# Portas e dominios
+
+Para uma aplicacao ficar acessivel, o AmbarksCloud precisa saber em qual porta ela escuta.
+
+## Porta interna
+
+A porta interna e a porta usada pela aplicacao dentro do ambiente de deploy. Ela deve bater com o comando de start ou com o `EXPOSE` do Dockerfile.
+
+Exemplos:
+
+| Aplicacao | Porta comum |
+| --- | --- |
+| Express, Next custom server, NestJS | `3000` |
+| FastAPI, Flask, Django | `8000` |
+| Rust web server | `8080` |
+| PHP built-in server | `8000` |
+| Site estatico | `80` |
+
+## Escute em 0.0.0.0
+
+Sua aplicacao deve escutar em `0.0.0.0`. Se ela escutar apenas em `localhost` ou `127.0.0.1`, pode iniciar corretamente, mas nao receber trafego externo.
+
+Exemplos:
+
+```js
+app.listen(3000, "0.0.0.0");
+```
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+## Usando variavel PORT
+
+Muitos projetos leem a porta por variavel de ambiente:
+
+```js
+const port = process.env.PORT || 3000;
+```
+
+Nesse caso, configure `PORT` nas variaveis do projeto e use a mesma porta no campo de porta interna.
+
+## Dominios
+
+Depois que o deploy estiver em execucao, use a URL exibida no dashboard para acessar a aplicacao. Se houver suporte a dominio personalizado no seu plano, configure o dominio no projeto e ajuste o DNS conforme orientado pelo painel.
+
+## Problemas comuns
+
+| Sintoma | O que verificar |
+| --- | --- |
+| Deploy conclui, mas nao abre | Porta interna incorreta |
+| Logs mostram servidor rodando | Verifique se esta escutando em `0.0.0.0` |
+| Dockerfile usa `EXPOSE 8080` | Configure porta interna como `8080` |
+
+## Links relacionados
+
+- [Criando projetos](/projetos/criando-projetos)
+- [Dockerfile personalizado](/projetos/dockerfile)
+- [Variaveis de ambiente](/projetos/variaveis-ambiente)

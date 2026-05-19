@@ -1,0 +1,53 @@
+---
+title: "Logs e metricas"
+description: "Use logs e metricas para acompanhar sua aplicacao."
+---
+
+# Logs e metricas
+
+Logs e metricas ajudam a entender se o deploy funcionou, se a aplicacao iniciou corretamente e se ela esta consumindo recursos dentro do esperado.
+
+## Logs de deploy
+
+Use os logs de deploy para acompanhar:
+
+- Download ou leitura do codigo enviado.
+- Instalacao de dependencias.
+- Build da aplicacao.
+- Criacao da imagem.
+- Inicializacao do container.
+- Erros de comando, dependencia ou porta.
+
+## Logs da aplicacao
+
+Depois que o container inicia, os logs mostram a saida do seu processo. Tudo que sua aplicacao escreve em stdout/stderr aparece nessa area.
+
+Exemplos uteis:
+
+- Servidor iniciou em qual porta.
+- Erro de conexao com banco.
+- Variavel de ambiente ausente.
+- Excecao durante boot da aplicacao.
+
+## Metricas
+
+As metricas ajudam a acompanhar consumo de:
+
+| Metrica | Uso |
+| --- | --- |
+| CPU | Indica carga de processamento |
+| RAM | Mostra memoria usada pela aplicacao |
+| Rede | Ajuda a observar trafego |
+
+## Como diagnosticar
+
+1. Se o deploy falhou, leia os logs de deploy de cima para baixo.
+2. Se o deploy concluiu mas o site nao abre, confira logs da aplicacao e porta interna.
+3. Se a aplicacao reinicia ou para, veja se ha erro logo apos o comando de start.
+4. Se falta configuracao, revise as variaveis de ambiente.
+
+## Links relacionados
+
+- [Portas e dominios](/projetos/portas-dominios)
+- [Variaveis de ambiente](/projetos/variaveis-ambiente)
+- [Erros comuns](/troubleshooting/common-errors)

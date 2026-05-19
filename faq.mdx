@@ -1,0 +1,38 @@
+---
+title: "FAQ"
+description: "Perguntas frequentes sobre deploy no AmbarksCloud."
+---
+
+# FAQ
+
+## Preciso ter Dockerfile?
+
+Nao. Para runtimes suportados, o AmbarksCloud consegue publicar projetos sem Dockerfile. Use Dockerfile quando precisar controlar dependencias, imagem base ou passos avancados.
+
+## Quando devo usar ambarks.json?
+
+Use `ambarks.json` quando o comando padrao nao servir. Ele e ideal para definir instalacao, build e start de forma explicita.
+
+## Quais linguagens sao suportadas automaticamente?
+
+Node.js, Python, Rust, PHP e sites estaticos. Outras linguagens podem ser publicadas com Dockerfile.
+
+## Posso enviar projeto privado do GitHub?
+
+Sim, desde que sua conta GitHub esteja conectada e tenha permissao no repositorio.
+
+## Preciso reenviar deploy depois de mudar variaveis?
+
+Sim. Faca um novo deploy para aplicar variaveis alteradas ao ambiente da aplicacao.
+
+## O que fazer se o deploy termina mas o site nao abre?
+
+Confira a porta interna, o comando de start e se a aplicacao escuta em `0.0.0.0`.
+
+## Posso usar banco de dados externo?
+
+Sim. Configure a URL ou credenciais do banco em variaveis de ambiente.
+
+## Onde vejo erros da aplicacao?
+
+Abra a area de logs do projeto. Logs de deploy mostram problemas de build; logs da aplicacao mostram erros apos o start.

@@ -1,0 +1,48 @@
+---
+title: "Deploy via GitHub"
+description: "Publique uma aplicacao a partir de um repositorio GitHub."
+---
+
+# Deploy via GitHub
+
+O deploy via GitHub e recomendado para projetos que recebem atualizacoes frequentes. Voce conecta sua conta, escolhe um repositorio e publica a partir de uma branch.
+
+## Antes de conectar
+
+Confira se o repositorio tem:
+
+- Codigo na branch que sera publicada.
+- Arquivos de dependencias, como `package.json`, `requirements.txt`, `Cargo.toml` ou equivalentes.
+- `ambarks.json` quando comandos personalizados forem necessarios.
+- Dockerfile quando o projeto exigir um build totalmente customizado.
+
+## Conectar repositorio
+
+1. No dashboard, clique em `Criar Novo Projeto`.
+2. Escolha `GitHub Repo`.
+3. Conecte sua conta GitHub, se ainda nao estiver conectada.
+4. Selecione o repositorio.
+5. Escolha a branch.
+6. Revise memoria, runtime e porta interna.
+7. Confirme para iniciar o deploy.
+
+## Repositorios privados
+
+Para repositorios privados, mantenha a integracao com GitHub ativa. Se o clone falhar, reconecte a conta GitHub e tente um novo deploy.
+
+## Novos deploys
+
+Depois que o projeto existe, voce pode publicar uma nova versao pelo dashboard. Use os logs para verificar se a branch correta foi usada e se o build terminou com sucesso.
+
+## Boas praticas
+
+- Use uma branch estavel para deploy.
+- Evite depender de arquivos ignorados pelo Git.
+- Guarde secrets em variaveis de ambiente, nao no repositorio.
+- Use `ambarks.json` para documentar o comando de start dentro do proprio projeto.
+
+## Links relacionados
+
+- [Variaveis de ambiente](/projetos/variaveis-ambiente)
+- [Como usar ambarks.json](/projetos/ambarks-json)
+- [Logs e metricas](/projetos/logs-metricas)

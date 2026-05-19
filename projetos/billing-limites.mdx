@@ -1,0 +1,47 @@
+---
+title: "Planos e limites"
+description: "Entenda memoria disponivel, planos e limites de projeto."
+---
+
+# Planos e limites
+
+Cada projeto usa parte da memoria disponivel na sua conta. Ao criar ou alterar um projeto, escolha um limite de RAM compativel com o plano.
+
+## Memoria do projeto
+
+O limite de memoria define quanto a aplicacao pode consumir. Se o limite for baixo demais, a aplicacao pode falhar durante build ou execucao.
+
+Exemplos:
+
+| Tipo de aplicacao | Sugestao inicial |
+| --- | --- |
+| Site estatico | 128 MB a 256 MB |
+| API simples | 256 MB a 512 MB |
+| App com build Node.js | 512 MB ou mais |
+| Aplicacao com processamento pesado | 1 GB ou mais |
+
+## Uso da conta
+
+O dashboard mostra:
+
+- Plano atual.
+- Memoria total disponivel.
+- Memoria ja alocada em projetos.
+- Memoria restante para novos projetos.
+
+## Upgrade
+
+Quando a memoria disponivel nao for suficiente, reduza o limite de projetos existentes ou escolha um plano maior no dashboard.
+
+## Problemas comuns
+
+| Sintoma | O que verificar |
+| --- | --- |
+| Nao consigo criar projeto | Memoria restante insuficiente |
+| Build falha sem erro claro | Tente aumentar memoria |
+| App para em execucao | Veja logs e consumo de RAM |
+
+## Links relacionados
+
+- [Criando projetos](/projetos/criando-projetos)
+- [Logs e metricas](/projetos/logs-metricas)

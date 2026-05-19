@@ -1,0 +1,58 @@
+---
+title: "Criando projetos"
+description: "Configure uma aplicacao no dashboard antes do deploy."
+---
+
+# Criando projetos
+
+Um projeto representa uma aplicacao que sera publicada no AmbarksCloud. Nele voce define nome, forma de envio, memoria, porta, variaveis e configuracoes de build.
+
+## Criar pelo dashboard
+
+1. Clique em `Criar Novo Projeto`.
+2. Informe um nome claro para identificar a aplicacao.
+3. Defina o limite de memoria.
+4. Escolha `Arquivo ZIP` ou `GitHub Repo`.
+5. Configure a porta interna se sua aplicacao nao usar a porta padrao do runtime.
+6. Envie o ZIP ou selecione o repositorio.
+7. Confirme para iniciar o deploy.
+
+## Campos importantes
+
+| Campo | Quando usar |
+| --- | --- |
+| Nome | Identifica o projeto no dashboard |
+| Memoria | Define quanto de RAM a aplicacao pode usar |
+| Porta interna | Porta em que sua aplicacao escuta dentro do container |
+| Runtime | Linguagem/ambiente usado quando nao ha Dockerfile |
+| Dockerfile | Caminho do Dockerfile, se voce usar um arquivo personalizado |
+| Repositorio | Projeto GitHub usado no deploy por branch |
+| Branch | Branch usada para publicar o projeto |
+
+## Porta interna
+
+A porta interna deve ser a mesma porta usada pela aplicacao. Exemplos comuns:
+
+| Tipo de projeto | Porta comum |
+| --- | --- |
+| Node.js | `3000` |
+| Python | `8000` |
+| Rust | `8080` |
+| PHP | `8000` |
+| Site estatico | `80` |
+
+Se o deploy concluir mas o site nao abrir, a porta interna e uma das primeiras configuracoes a revisar.
+
+## Antes do primeiro deploy
+
+- Rode o projeto localmente para confirmar que o comando de start funciona.
+- Garanta que a aplicacao escute em `0.0.0.0`, nao apenas em `localhost`.
+- Adicione `ambarks.json` se precisar informar comandos diferentes do padrao.
+- Use Dockerfile se seu projeto exigir dependencias ou passos muito especificos.
+
+## Links relacionados
+
+- [Deploy via ZIP](/projetos/deploy-zip)
+- [Deploy via GitHub](/projetos/deploy-github)
+- [Portas e dominios](/projetos/portas-dominios)
+- [Como usar ambarks.json](/projetos/ambarks-json)

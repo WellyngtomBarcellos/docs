@@ -1,0 +1,42 @@
+---
+title: "Gerenciando containers"
+description: "Entenda as acoes disponiveis para uma aplicacao publicada."
+---
+
+# Gerenciando containers
+
+Cada deploy bem-sucedido deixa sua aplicacao rodando em um container. Pelo dashboard, voce pode acompanhar status, logs, metricas e executar acoes de ciclo de vida.
+
+## Acoes disponiveis
+
+| Acao | Quando usar |
+| --- | --- |
+| Iniciar | Quando o container esta parado |
+| Parar | Para interromper a aplicacao |
+| Reiniciar | Para aplicar uma correcao temporaria ou recuperar o processo |
+| Pausar | Para suspender a execucao sem remover |
+| Retomar | Para voltar de uma pausa |
+| Remover | Para limpar um container que nao sera mais usado |
+
+## Quando fazer novo deploy
+
+Reiniciar nao troca codigo, variaveis nem imagem. Faca novo deploy quando:
+
+- O codigo mudou.
+- Voce alterou variaveis de ambiente.
+- Mudou `ambarks.json`.
+- Mudou Dockerfile.
+- Precisa reconstruir dependencias.
+
+## Boas praticas
+
+- Use logs antes de reiniciar para entender o erro.
+- Evite depender de arquivos gravados dentro do container.
+- Configure variaveis e arquivos persistentes fora do codigo quando possivel.
+- Se o container para logo apos iniciar, revise o comando de start.
+
+## Links relacionados
+
+- [Logs e metricas](/projetos/logs-metricas)
+- [Como usar ambarks.json](/projetos/ambarks-json)
+- [Portas e dominios](/projetos/portas-dominios)

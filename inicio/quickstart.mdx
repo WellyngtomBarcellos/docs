@@ -1,0 +1,50 @@
+---
+title: "Guia rapido"
+description: "Publique seu primeiro projeto pelo dashboard."
+---
+
+# Guia rapido
+
+Este guia mostra o caminho mais curto para publicar uma aplicacao no AmbarksCloud.
+
+## 1. Prepare seu projeto
+
+Antes de enviar, confira:
+
+| Item | Recomendacao |
+| --- | --- |
+| Comando de start | Tenha um comando que inicie a aplicacao |
+| Porta | A aplicacao deve escutar em `0.0.0.0` na porta configurada |
+| Dependencias | Inclua arquivos como `package-lock.json`, `requirements.txt` ou equivalentes |
+| Arquivos locais | Remova `node_modules`, `.git`, caches e builds desnecessarios do ZIP |
+
+## 2. Escolha o formato de envio
+
+Use **Arquivo ZIP** quando quiser testar rapido ou enviar codigo sem conectar repositorio.
+
+Use **GitHub Repo** quando quiser publicar a partir de uma branch e facilitar novos deploys.
+
+## 3. Crie o projeto
+
+1. Acesse o dashboard.
+2. Clique em `Criar Novo Projeto`.
+3. Informe o nome do projeto.
+4. Defina a memoria disponivel.
+5. Escolha ZIP ou GitHub.
+6. Envie o codigo ou selecione o repositorio.
+7. Confirme para iniciar o primeiro deploy.
+
+## 4. Acompanhe os logs
+
+Abra a area de logs do projeto para ver cada etapa do deploy. Se algo falhar, os logs normalmente indicam se o problema esta no build, no comando de start, na porta ou em alguma variavel ausente.
+
+## 5. Ajuste quando necessario
+
+Se o AmbarksCloud nao detectar o projeto corretamente, adicione um arquivo [`ambarks.json`](/projetos/ambarks-json) na raiz com comandos explicitos de instalacao, build e start. Veja o guia [Como usar ambarks.json](/projetos/ambarks-json) para entender o que ele faz e quais campos preencher.
+
+## Links relacionados
+
+- [Criando projetos](/projetos/criando-projetos)
+- [Deploy via ZIP](/projetos/deploy-zip)
+- [Deploy via GitHub](/projetos/deploy-github)
+- [Como usar ambarks.json](/projetos/ambarks-json)
