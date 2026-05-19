@@ -1,9 +1,9 @@
 ---
-title: "Como usar ambarks.json"
+title: "Comandos de inicialização"
 description: "Configure comandos de instalacao, build e start do seu projeto."
 ---
 
-# Como usar ambarks.json
+# <Icon icon="golf-flag-hole" color="#0516ee" size={30} /> Criando um ambarks.json
 
 O arquivo `ambarks.json` permite dizer ao AmbarksCloud como preparar e iniciar seu projeto quando o comportamento automatico nao e suficiente.
 
@@ -27,7 +27,7 @@ Tambem e aceito o nome `ambarks.config.json`.
     "buildCommand": "npm run build"
   },
   "run": {
-    "command": "npm run start"
+    "command": "npx tsx src/index.ts"
   }
 }
 ```

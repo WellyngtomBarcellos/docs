@@ -3,17 +3,17 @@ title: "Deploy via ZIP"
 description: "Envie um arquivo compactado pelo dashboard."
 ---
 
-# Deploy via ZIP
+# <Icon icon="cloud" color="#0516ee" size={30} /> Como fazer deploy em ZIP file
 
 O deploy via ZIP e indicado para testes rapidos, prototipos e projetos que ainda nao estao conectados ao GitHub.
 
-## Como preparar o ZIP
+## Preparação do ZIP
 
 O ZIP deve conter o codigo do projeto e os arquivos necessarios para instalar, buildar e iniciar a aplicacao.
 
 Estrutura recomendada:
 
-```text
+```shellscript
 meu-projeto.zip
   package.json
   package-lock.json
@@ -23,7 +23,7 @@ meu-projeto.zip
 
 Tambem pode existir uma unica pasta raiz dentro do ZIP:
 
-```text
+```shellscript
 meu-projeto.zip
   meu-projeto/
     package.json

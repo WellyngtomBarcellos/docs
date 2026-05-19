@@ -1,12 +1,15 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "AmbarksCloud Center",
-  "favicon": "/favicon.ico",
+  "name": "AmbarksCloud",
+  "favicon": {
+    "light": "/favicon.ico",
+    "dark": "/favicon.ico"
+  },
   "colors": {
     "primary": "#2563eb",
-    "light": "#f8fafc",
-    "dark": "#0f172a"
+    "light": "#e5e5e5",
+    "dark": "#0f1219"
   },
   "navigation": {
     "groups": [
@@ -48,10 +51,30 @@
         "pages": [
           "exemplos/projetos-exemplo",
           "troubleshooting/common-errors",
-          "faq",
-          "glossario"
+          "faq"
         ]
       }
     ]
+  },
+  "description": "Plataforma de hospedagens de aplicativos web",
+  "logo": "/images/AMBC-logo.png",
+  "background": {
+    "decoration": "grid",
+    "color": {
+      "light": "#e5e5e5",
+      "dark": "#0c0d11"
+    }
+  },
+  "appearance": {
+    "default": "dark",
+    "strict": false
+  },
+  "fonts": {
+    "family": "Poppins",
+    "weight": 500
+  },
+  "thumbnails": {
+    "appearance": "dark",
+    "background": "/images/wallpaper.png"
   }
 }

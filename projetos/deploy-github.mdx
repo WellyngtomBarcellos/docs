@@ -3,32 +3,36 @@ title: "Deploy via GitHub"
 description: "Publique uma aplicacao a partir de um repositorio GitHub."
 ---
 
-# Deploy via GitHub
+# <Icon icon="cloud" color="#0516ee" size={30} /> Como fazer deploy com Github
 
 O deploy via GitHub e recomendado para projetos que recebem atualizacoes frequentes. Voce conecta sua conta, escolhe um repositorio e publica a partir de uma branch.
 
-## Antes de conectar
+<Steps>
+  <Step title="Prepare sua aplicação">
+    Confira se o repositorio tem:
 
-Confira se o repositorio tem:
+    - Codigo na branch que sera publicada.
+    - Arquivos de dependencias, como `package.json`, `requirements.txt`, `Cargo.toml` ou equivalentes.
+    - `ambarks.json` quando comandos personalizados forem necessarios.
+    - Dockerfile quando o projeto exigir um build totalmente customizado.
+  </Step>
+  <Step title="Remova arquivos desnecessários">
+    Evite enviar com arquivos de desenvolvimento como `__pycache__/`, `node_modules `etc
+  </Step>
+  <Step title="Conecte seu repositório">
+    1. No dashboard, clique em `Criar Novo Projeto`.
+    2. Escolha `GitHub Repo`.
+    3. Conecte sua conta GitHub, se ainda nao estiver conectada.
+    4. Selecione o repositorio.
+    5. Escolha a branch.
+    6. Revise memoria, runtime e porta interna.
+    7. Confirme para iniciar o deploy. 
 
-- Codigo na branch que sera publicada.
-- Arquivos de dependencias, como `package.json`, `requirements.txt`, `Cargo.toml` ou equivalentes.
-- `ambarks.json` quando comandos personalizados forem necessarios.
-- Dockerfile quando o projeto exigir um build totalmente customizado.
-
-## Conectar repositorio
-
-1. No dashboard, clique em `Criar Novo Projeto`.
-2. Escolha `GitHub Repo`.
-3. Conecte sua conta GitHub, se ainda nao estiver conectada.
-4. Selecione o repositorio.
-5. Escolha a branch.
-6. Revise memoria, runtime e porta interna.
-7. Confirme para iniciar o deploy.
-
-## Repositorios privados
-
-Para repositorios privados, mantenha a integracao com GitHub ativa. Se o clone falhar, reconecte a conta GitHub e tente um novo deploy.
+    <Warning>
+      Para repositorios privados, mantenha a integracao com GitHub ativa. Se o clone falhar, reconecte a conta GitHub e tente um novo deploy.
+    </Warning>
+  </Step>
+</Steps>
 
 ## Novos deploys
 
