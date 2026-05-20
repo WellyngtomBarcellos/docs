@@ -5,11 +5,11 @@ description: "Envie um arquivo compactado pelo dashboard."
 
 # <Icon icon="cloud" color="#0516ee" size={30} /> Como fazer deploy em ZIP file
 
-O deploy via ZIP e indicado para testes rapidos, prototipos e projetos que ainda nao estao conectados ao GitHub.
+O deploy via ZIP é indicado para testes rápidos, protótipos e projetos que ainda não estão conectados ao GitHub.
 
 ## Preparação do ZIP
 
-O ZIP deve conter o codigo do projeto e os arquivos necessarios para instalar, buildar e iniciar a aplicacao.
+O ZIP deve conter o código do projeto e os arquivos necessários para instalar, buildar e iniciar a aplicação.
 
 Estrutura recomendada:
 
@@ -21,7 +21,7 @@ meu-projeto.zip
   ambarks.json
 ```
 
-Tambem pode existir uma unica pasta raiz dentro do ZIP:
+Também pode existir uma única pasta raiz dentro do ZIP:
 
 ```shellscript
 meu-projeto.zip
@@ -35,7 +35,7 @@ meu-projeto.zip
 - `node_modules`
 - `.git`
 - pastas de cache
-- arquivos temporarios
+- arquivos temporários
 - builds locais muito grandes, quando eles puderem ser gerados no deploy
 
 ## Enviar pelo dashboard
@@ -43,7 +43,7 @@ meu-projeto.zip
 1. Clique em `Criar Novo Projeto`.
 2. Escolha `Arquivo ZIP`.
 3. Selecione o arquivo `.zip`.
-4. Confirme as configuracoes de memoria, porta e runtime.
+4. Confirme as configurações de memória, porta e runtime.
 5. Clique em `Criar & Deploy`.
 6. Abra os logs para acompanhar o progresso.
 
@@ -51,22 +51,22 @@ meu-projeto.zip
 
 Adicione `ambarks.json` na raiz do ZIP quando:
 
-- O comando de instalacao nao for o padrao.
+- O comando de instalação não for o padrão.
 - O projeto precisa rodar um build antes de iniciar.
-- O comando de start nao e `npm start`, `python main.py` ou equivalente.
-- Voce quer deixar o deploy previsivel para proximos envios.
+- O comando de start não é `npm start`, `python main.py` ou equivalente.
+- Você quer deixar o deploy previsível para próximos envios.
 
 ## Problemas comuns
 
 | Problema | O que verificar |
 | --- | --- |
-| ZIP nao envia | Confirme formato `.zip` e tamanho do arquivo |
-| Runtime nao detectado | Escolha o runtime no dashboard ou adicione `ambarks.json` |
-| Build falha | Veja se as dependencias e lockfiles foram incluidos |
-| App inicia mas nao abre | Confira porta interna e se o app escuta em `0.0.0.0` |
+| ZIP não envia | Confirme formato `.zip` e tamanho do arquivo |
+| Runtime não detectado | Escolha o runtime no dashboard ou adicione `ambarks.json` |
+| Build falha | Veja se as dependências e lockfiles foram incluídos |
+| App inicia mas não abre | Confira porta interna e se o app escuta em `0.0.0.0` |
 
 ## Links relacionados
 
 - [Runtimes suportados](/projetos/runtimes)
 - [Como usar ambarks.json](/projetos/ambarks-json)
-- [Portas e dominios](/projetos/portas-dominios)
+- [Portas e domínios](/projetos/portas-dominios)

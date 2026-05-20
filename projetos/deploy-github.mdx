@@ -1,52 +1,52 @@
 ---
 title: "Deploy via GitHub"
-description: "Publique uma aplicacao a partir de um repositorio GitHub."
+description: "Publique uma aplicação a partir de um repositório GitHub."
 ---
 
-# <Icon icon="cloud" color="#0516ee" size={30} /> Como fazer deploy com Github
+# <Icon icon="cloud" color="#0516ee" size={30} /> Como fazer deploy com GitHub
 
-O deploy via GitHub e recomendado para projetos que recebem atualizacoes frequentes. Voce conecta sua conta, escolhe um repositorio e publica a partir de uma branch.
+O deploy via GitHub é recomendado para projetos que recebem atualizações frequentes. Você conecta sua conta, escolhe um repositório e publica a partir de uma branch.
 
 <Steps>
   <Step title="Prepare sua aplicação">
-    Confira se o repositorio tem:
+    Confira se o repositório tem:
 
-    - Codigo na branch que sera publicada.
-    - Arquivos de dependencias, como `package.json`, `requirements.txt`, `Cargo.toml` ou equivalentes.
-    - `ambarks.json` quando comandos personalizados forem necessarios.
+    - Código na branch que será publicada.
+    - Arquivos de dependências, como `package.json`, `requirements.txt`, `Cargo.toml` ou equivalentes.
+    - `ambarks.json` quando comandos personalizados forem necessários.
     - Dockerfile quando o projeto exigir um build totalmente customizado.
   </Step>
   <Step title="Remova arquivos desnecessários">
-    Evite enviar com arquivos de desenvolvimento como `__pycache__/`, `node_modules `etc
+    Evite enviar com arquivos de desenvolvimento como `__pycache__/`, `node_modules `etc.
   </Step>
   <Step title="Conecte seu repositório">
     1. No dashboard, clique em `Criar Novo Projeto`.
     2. Escolha `GitHub Repo`.
-    3. Conecte sua conta GitHub, se ainda nao estiver conectada.
-    4. Selecione o repositorio.
+    3. Conecte sua conta GitHub, se ainda não estiver conectada.
+    4. Selecione o repositório.
     5. Escolha a branch.
-    6. Revise memoria, runtime e porta interna.
+    6. Revise memória, runtime e porta interna.
     7. Confirme para iniciar o deploy. 
 
     <Warning>
-      Para repositorios privados, mantenha a integracao com GitHub ativa. Se o clone falhar, reconecte a conta GitHub e tente um novo deploy.
+      Para repositórios privados, mantenha a integração com GitHub ativa. Se o clone falhar, reconecte a conta GitHub e tente um novo deploy.
     </Warning>
   </Step>
 </Steps>
 
 ## Novos deploys
 
-Depois que o projeto existe, voce pode publicar uma nova versao pelo dashboard. Use os logs para verificar se a branch correta foi usada e se o build terminou com sucesso.
+Depois que o projeto existe, você pode publicar uma nova versão pelo dashboard. Use os logs para verificar se a branch correta foi usada e se o build terminou com sucesso.
 
-## Boas praticas
+## Boas práticas
 
-- Use uma branch estavel para deploy.
+- Use uma branch estável para deploy.
 - Evite depender de arquivos ignorados pelo Git.
-- Guarde secrets em variaveis de ambiente, nao no repositorio.
-- Use `ambarks.json` para documentar o comando de start dentro do proprio projeto.
+- Guarde secrets em variáveis de ambiente, não no repositório.
+- Use `ambarks.json` para documentar o comando de start dentro do próprio projeto.
 
 ## Links relacionados
 
-- [Variaveis de ambiente](/projetos/variaveis-ambiente)
+- [Variáveis de ambiente](/projetos/variaveis-ambiente)
 - [Como usar ambarks.json](/projetos/ambarks-json)
-- [Logs e metricas](/projetos/logs-metricas)
+- [Logs e métricas](/projetos/logs-metricas)

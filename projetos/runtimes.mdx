@@ -3,19 +3,19 @@ title: "Runtimes"
 description: "Linguagens e formatos que o AmbarksCloud consegue publicar automaticamente."
 ---
 
-# <Icon icon="cloud" color="#0516ee" size={30} /> Runtimes suportadas
+# <Icon icon="cloud" color="#0516ee" size={30} /> Runtimes suportados
 
-Quando seu projeto nao tem Dockerfile, o AmbarksCloud tenta preparar o deploy usando o runtime escolhido no dashboard ou detectado pelos arquivos do projeto.
+Quando seu projeto não tem Dockerfile, o AmbarksCloud tenta preparar o deploy usando o runtime escolhido no dashboard ou detectado pelos arquivos do projeto.
 
 ## Tabela de runtimes
 
-| Runtime | Como costuma ser detectado | Porta comum | Comando padrao |
+| Runtime | Como costuma ser detectado | Porta comum | Comando padrão |
 | --- | --- | --- | --- |
 | Node.js | `package.json` | `3000` | `npm start` |
 | Python | runtime `python` | `8000` | `python main.py` |
 | Rust | runtime `rust` | `8080` | `cargo run --release` |
 | PHP | runtime `php` | `8000` | `php -S 0.0.0.0:8000 -t public` |
-| Site estatico | `index.html` | `80` | servidor estatico |
+| Site estático | `index.html` | `80` | servidor estático |
 
 ## Node.js
 
@@ -34,7 +34,7 @@ Se precisar rodar build antes do start, configure `ambarks.json`.
 
 ## Python
 
-O padrao espera um arquivo `main.py`.
+O padrão espera um arquivo `main.py`.
 
 ```text
 python-app/
@@ -46,24 +46,24 @@ Para Flask, FastAPI ou outro comando, use `ambarks.json`.
 
 ## Rust
 
-Inclua `Cargo.toml` e mantenha o comando de execucao compatvel com `cargo run --release`, ou defina outro comando em `ambarks.json`.
+Inclua `Cargo.toml` e mantenha o comando de execução compatível com `cargo run --release`, ou defina outro comando em `ambarks.json`.
 
 ## PHP
 
-O padrao publica usando a pasta `public`. Se seu projeto usa outra pasta ou framework com comando especifico, prefira Dockerfile.
+O padrão publica usando a pasta `public`. Se seu projeto usa outra pasta ou framework com comando específico, prefira Dockerfile.
 
-## Site estatico
+## Site estático
 
-Projetos com `index.html` podem ser publicados como site estatico. Para projetos com build, como Vite ou Astro, use `ambarks.json` para gerar a pasta final ou Dockerfile para controlar o processo.
+Projetos com `index.html` podem ser publicados como site estático. Para projetos com build, como Vite ou Astro, use `ambarks.json` para gerar a pasta final ou Dockerfile para controlar o processo.
 
 ## Quando escolher Dockerfile
 
 Use Dockerfile quando:
 
 - O projeto precisa instalar pacotes do sistema.
-- Ha multiplos processos ou comandos complexos.
-- O runtime automatico nao cobre sua linguagem.
-- Voce precisa controlar versoes, usuario, pastas ou binarios.
+- Há múltiplos processos ou comandos complexos.
+- O runtime automático não cobre sua linguagem.
+- Você precisa controlar versões, usuário, pastas ou binários.
 
 ## Links relacionados
 

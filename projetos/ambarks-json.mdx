@@ -1,11 +1,11 @@
 ---
 title: "Comandos de inicialização"
-description: "Configure comandos de instalacao, build e start do seu projeto."
+description: "Configure comandos de instalação, build e start do seu projeto."
 ---
 
 # <Icon icon="golf-flag-hole" color="#0516ee" size={30} /> Criando um ambarks.json
 
-O arquivo `ambarks.json` permite dizer ao AmbarksCloud como preparar e iniciar seu projeto quando o comportamento automatico nao e suficiente.
+O arquivo `ambarks.json` permite dizer ao AmbarksCloud como preparar e iniciar seu projeto quando o comportamento automático não é suficiente.
 
 Crie o arquivo na raiz do projeto:
 
@@ -16,7 +16,7 @@ meu-projeto/
   src/
 ```
 
-Tambem e aceito o nome `ambarks.config.json`.
+Também é aceito o nome `ambarks.config.json`.
 
 ## Exemplo completo
 
@@ -36,11 +36,11 @@ Tambem e aceito o nome `ambarks.config.json`.
 
 | Campo | Uso |
 | --- | --- |
-| `build.installCommand` | Comando para instalar dependencias |
-| `build.install` | Atalho alternativo para comando de instalacao |
+| `build.installCommand` | Comando para instalar dependências |
+| `build.install` | Atalho alternativo para comando de instalação |
 | `build.buildCommand` | Comando para gerar build |
 | `build.command` | Atalho alternativo para comando de build |
-| `run.command` | Comando usado para iniciar a aplicacao |
+| `run.command` | Comando usado para iniciar a aplicação |
 
 ## Exemplos por runtime
 
@@ -71,7 +71,7 @@ Tambem e aceito o nome `ambarks.config.json`.
 }
 ```
 
-### Site estatico com build
+### Site estático com build
 
 ```json
 {
@@ -87,18 +87,18 @@ Tambem e aceito o nome `ambarks.config.json`.
 
 ## Regras importantes
 
-- O JSON precisa ser valido.
+- O JSON precisa ser válido.
 - O arquivo deve estar na raiz do projeto enviado.
 - O comando de start deve manter o processo rodando.
 - Servidores web devem escutar em `0.0.0.0`.
 - A porta usada pelo comando deve bater com a porta interna configurada no projeto.
 
-## Quando nao usar
+## Quando não usar
 
-Se seu projeto precisa instalar pacotes do sistema, copiar arquivos para pastas especificas ou usar varias etapas de build, prefira Dockerfile.
+Se seu projeto precisa instalar pacotes do sistema, copiar arquivos para pastas específicas ou usar várias etapas de build, prefira Dockerfile.
 
 ## Links relacionados
 
 - [Runtimes suportados](/projetos/runtimes)
 - [Dockerfile personalizado](/projetos/dockerfile)
-- [Portas e dominios](/projetos/portas-dominios)
+- [Portas e domínios](/projetos/portas-dominios)

@@ -1,42 +1,42 @@
 ---
 title: "Gerenciando containers"
-description: "Entenda as acoes disponiveis para uma aplicacao publicada."
+description: "Entenda as ações disponíveis para uma aplicação publicada."
 ---
 
 # <Icon icon="code" color="#0516ee" size={30} /> Gerenciando containers
 
-Cada deploy bem-sucedido deixa sua aplicacao rodando em um container. Pelo dashboard, voce pode acompanhar status, logs, metricas e executar acoes de ciclo de vida.
+Cada deploy bem-sucedido deixa sua aplicação rodando em um container. Pelo dashboard, você pode acompanhar status, logs, métricas e executar ações de ciclo de vida.
 
-## Acoes disponiveis
+## Ações disponíveis
 
-| Acao | Quando usar |
+| Ação | Quando usar |
 | --- | --- |
-| Iniciar | Quando o container esta parado |
-| Parar | Para interromper a aplicacao |
-| Reiniciar | Para aplicar uma correcao temporaria ou recuperar o processo |
-| Pausar | Para suspender a execucao sem remover |
+| Iniciar | Quando o container está parado |
+| Parar | Para interromper a aplicação |
+| Reiniciar | Para aplicar uma correção temporária ou recuperar o processo |
+| Pausar | Para suspender a execução sem remover |
 | Retomar | Para voltar de uma pausa |
-| Remover | Para limpar um container que nao sera mais usado |
+| Remover | Para limpar um container que não será mais usado |
 
 ## Quando fazer novo deploy
 
-Reiniciar nao troca codigo, variaveis nem imagem. Faca novo deploy quando:
+Reiniciar não troca código, variáveis nem imagem. Faça novo deploy quando:
 
-- O codigo mudou.
-- Voce alterou variaveis de ambiente.
+- O código mudou.
+- Você alterou variáveis de ambiente.
 - Mudou `ambarks.json`.
 - Mudou Dockerfile.
-- Precisa reconstruir dependencias.
+- Precisa reconstruir dependências.
 
-## Boas praticas
+## Boas práticas
 
 - Use logs antes de reiniciar para entender o erro.
 - Evite depender de arquivos gravados dentro do container.
-- Configure variaveis e arquivos persistentes fora do codigo quando possivel.
-- Se o container para logo apos iniciar, revise o comando de start.
+- Configure variáveis e arquivos persistentes fora do código quando possível.
+- Se o container para logo após iniciar, revise o comando de start.
 
 ## Links relacionados
 
-- [Logs e metricas](/projetos/logs-metricas)
+- [Logs e métricas](/projetos/logs-metricas)
 - [Como usar ambarks.json](/projetos/ambarks-json)
-- [Portas e dominios](/projetos/portas-dominios)
+- [Portas e domínios](/projetos/portas-dominios)

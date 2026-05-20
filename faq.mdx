@@ -5,36 +5,34 @@ description: "Perguntas frequentes sobre deploy no AmbarksCloud."
 
 # <Icon icon="code" color="#0516ee" size={30} /> Nossa central de dúvidas
 
-# <Icon icon="code" color="#0516ee" size={30} /> Nossa central de dúvidas
-
 ## Preciso ter Dockerfile?
 
-Nao. Para runtimes suportados, o AmbarksCloud consegue publicar projetos sem Dockerfile. Use Dockerfile quando precisar controlar dependencias, imagem base ou passos avancados.
+Não. Para runtimes suportados, o AmbarksCloud consegue publicar projetos sem Dockerfile. Use Dockerfile quando precisar controlar dependências, imagem base ou passos avançados.
 
 ## Quando devo usar ambarks.json?
 
-Use `ambarks.json` quando o comando padrao nao servir. Ele e ideal para definir instalacao, build e start de forma explicita.
+Use `ambarks.json` quando o comando padrão não servir. Ele é ideal para definir instalação, build e start de forma explícita.
 
-## Quais linguagens sao suportadas automaticamente?
+## Quais linguagens são suportadas automaticamente?
 
-Node.js, Python, Rust, PHP e sites estaticos. Outras linguagens podem ser publicadas com Dockerfile.
+Node.js, Python, Rust, PHP e sites estáticos. Outras linguagens podem ser publicadas com Dockerfile.
 
 ## Posso enviar projeto privado do GitHub?
 
-Sim, desde que sua conta GitHub esteja conectada e tenha permissao no repositorio.
+Sim, desde que sua conta GitHub esteja conectada e tenha permissão no repositório.
 
-## Preciso reenviar deploy depois de mudar variaveis?
+## Preciso reenviar deploy depois de mudar variáveis?
 
-Sim. Faca um novo deploy para aplicar variaveis alteradas ao ambiente da aplicacao.
+Sim. Faça um novo deploy para aplicar variáveis alteradas ao ambiente da aplicação.
 
-## O que fazer se o deploy termina mas o site nao abre?
+## O que fazer se o deploy termina mas o site não abre?
 
-Confira a porta interna, o comando de start e se a aplicacao escuta em `0.0.0.0`.
+Confira a porta interna, o comando de start e se a aplicação escuta em `0.0.0.0`.
 
 ## Posso usar banco de dados externo?
 
-Sim. Configure a URL ou credenciais do banco em variaveis de ambiente.
+Sim. Configure a URL ou credenciais do banco em variáveis de ambiente.
 
-## Onde vejo erros da aplicacao?
+## Onde vejo erros da aplicação?
 
-Abra a area de logs do projeto. Logs de deploy mostram problemas de build; logs da aplicacao mostram erros apos o start.
+Abra a área de logs do projeto. Logs de deploy mostram problemas de build; logs da aplicação mostram erros após o start.

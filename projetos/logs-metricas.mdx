@@ -1,53 +1,53 @@
 ---
-title: "Logs e metricas"
-description: "Use logs e metricas para acompanhar sua aplicacao."
+title: "Logs e métricas"
+description: "Use logs e métricas para acompanhar sua aplicação."
 ---
 
 # <Icon icon="code" color="#0516ee" size={30} /> Use sempre os logs e métricas
 
-Logs e metricas ajudam a entender se o deploy funcionou, se a aplicacao iniciou corretamente e se ela esta consumindo recursos dentro do esperado.
+Logs e métricas ajudam a entender se o deploy funcionou, se a aplicação iniciou corretamente e se ela está consumindo recursos dentro do esperado.
 
 ## Logs de deploy
 
 Use os logs de deploy para acompanhar:
 
-- Download ou leitura do codigo enviado.
-- Instalacao de dependencias.
-- Build da aplicacao.
-- Criacao da imagem.
-- Inicializacao do container.
-- Erros de comando, dependencia ou porta.
+- Download ou leitura do código enviado.
+- Instalação de dependências.
+- Build da aplicação.
+- Criação da imagem.
+- Inicialização do container.
+- Erros de comando, dependência ou porta.
 
-## Logs da aplicacao
+## Logs da aplicação
 
-Depois que o container inicia, os logs mostram a saida do seu processo. Tudo que sua aplicacao escreve em stdout/stderr aparece nessa area.
+Depois que o container inicia, os logs mostram a saída do seu processo. Tudo que sua aplicação escreve em stdout/stderr aparece nessa área.
 
-Exemplos uteis:
+Exemplos úteis:
 
 - Servidor iniciou em qual porta.
-- Erro de conexao com banco.
-- Variavel de ambiente ausente.
-- Excecao durante boot da aplicacao.
+- Erro de conexão com banco.
+- Variável de ambiente ausente.
+- Exceção durante boot da aplicação.
 
-## Metricas
+## Métricas
 
-As metricas ajudam a acompanhar consumo de:
+As métricas ajudam a acompanhar o consumo de:
 
-| Metrica | Uso |
+| Métrica | Uso |
 | --- | --- |
 | CPU | Indica carga de processamento |
-| RAM | Mostra memoria usada pela aplicacao |
-| Rede | Ajuda a observar trafego |
+| RAM | Mostra memória usada pela aplicação |
+| Rede | Ajuda a observar tráfego |
 
 ## Como diagnosticar
 
 1. Se o deploy falhou, leia os logs de deploy de cima para baixo.
-2. Se o deploy concluiu mas o site nao abre, confira logs da aplicacao e porta interna.
-3. Se a aplicacao reinicia ou para, veja se ha erro logo apos o comando de start.
-4. Se falta configuracao, revise as variaveis de ambiente.
+2. Se o deploy concluiu mas o site não abre, confira logs da aplicação e porta interna.
+3. Se a aplicação reinicia ou para, veja se há erro logo após o comando de start.
+4. Se falta configuração, revise as variáveis de ambiente.
 
 ## Links relacionados
 
-- [Portas e dominios](/projetos/portas-dominios)
-- [Variaveis de ambiente](/projetos/variaveis-ambiente)
+- [Portas e domínios](/projetos/portas-dominios)
+- [Variáveis de ambiente](/projetos/variaveis-ambiente)
 - [Erros comuns](/troubleshooting/common-errors)

@@ -1,56 +1,56 @@
 ---
-title: "Variaveis de ambiente"
-description: "Configure secrets e parametros usados pela aplicacao."
+title: "Variáveis de ambiente"
+description: "Configure secrets e parâmetros usados pela aplicação."
 ---
 
 # <Icon icon="code" color="#0516ee" size={30} /> Variáveis de Ambiente
 
-Variaveis de ambiente servem para configurar sua aplicacao sem colocar dados sensiveis no codigo. Use para URLs, tokens, credenciais, flags e configuracoes por ambiente.
+Variáveis de ambiente servem para configurar sua aplicação sem colocar dados sensíveis no código. Use para URLs, tokens, credenciais, flags e configurações por ambiente.
 
-## Criar variavel
+## Criar variável
 
 1. Abra o projeto no dashboard.
-2. Acesse a area de variaveis.
-3. Clique para adicionar uma nova variavel.
+2. Acesse a área de variáveis.
+3. Clique para adicionar uma nova variável.
 4. Informe chave e valor.
-5. Marque como secret quando o valor for sensivel.
-6. Salve e faca um novo deploy para aplicar.
+5. Marque como secret quando o valor for sensível.
+6. Salve e faça um novo deploy para aplicar.
 
 ## Campos
 
-| Campo | Descricao |
+| Campo | Descrição |
 | --- | --- |
-| Chave | Nome da variavel, como `DATABASE_URL` |
-| Valor | Conteudo usado pela aplicacao |
+| Chave | Nome da variável, como `DATABASE_URL` |
+| Valor | Conteúdo usado pela aplicação |
 | Secret | Mascara o valor no dashboard |
-| Build arg | Disponibiliza a variavel durante o build quando necessario |
+| Build arg | Disponibiliza a variável durante o build quando necessário |
 
-## Boas praticas
+## Boas práticas
 
 - Use nomes em caixa alta, como `DATABASE_URL`, `APP_ENV` e `API_KEY`.
-- Nao envie secrets dentro do repositorio ou ZIP.
-- Faca novo deploy apos alterar variaveis usadas pela aplicacao.
-- Use valores diferentes para teste e producao.
+- Não envie secrets dentro do repositório ou ZIP.
+- Faça novo deploy após alterar variáveis usadas pela aplicação.
+- Use valores diferentes para teste e produção.
 
 ## Exemplos comuns
 
-| Variavel | Exemplo |
+| Variável | Exemplo |
 | --- | --- |
 | `PORT` | `3000` |
 | `NODE_ENV` | `production` |
-| `DATABASE_URL` | URL de conexao com banco |
-| `APP_URL` | URL publica da aplicacao |
+| `DATABASE_URL` | URL de conexão com banco |
+| `APP_URL` | URL pública da aplicação |
 
 ## Problemas comuns
 
 | Sintoma | O que verificar |
 | --- | --- |
-| App nao reconhece a variavel | Confirme se houve novo deploy |
-| Valor aparece mascarado | Variavel marcada como secret |
-| Build falha por variavel ausente | Marque como build arg quando ela for usada durante o build |
+| App não reconhece a variável | Confirme se houve novo deploy |
+| Valor aparece mascarado | Variável marcada como secret |
+| Build falha por variável ausente | Marque como build arg quando ela for usada durante o build |
 
 ## Links relacionados
 
 - [Deploy via GitHub](/projetos/deploy-github)
 - [Deploy via ZIP](/projetos/deploy-zip)
-- [Logs e metricas](/projetos/logs-metricas)
+- [Logs e métricas](/projetos/logs-metricas)
