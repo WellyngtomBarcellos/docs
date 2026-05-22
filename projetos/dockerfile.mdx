@@ -1,63 +1,42 @@
 ---
 title: "Dockerfile personalizado"
-description: "Use Dockerfile quando quiser controlar todo o processo de deploy."
+description: "Controle total do ambiente do deploy."
 ---
 
-# <Icon icon="code" color="#0516ee" size={30} /> Dockerfile
+# <Icon icon="code" color="#0516ee" size={30} /> Dockerfile personalizado
 
-Um Dockerfile é opcional, mas é a melhor escolha quando seu projeto precisa de comandos, dependências ou configurações que passam do runtime automático.
+Use Dockerfile quando você precisar de controle total do ambiente: versões específicas, pacotes do sistema, múltiplas etapas ou um servidor customizado.
 
-## Quando usar
+## Regras essenciais
 
-- A aplicação precisa de pacotes do sistema.
-- O build tem mais de uma etapa.
-- A linguagem não está nos runtimes automáticos.
-- Você precisa escolher uma imagem base específica.
-- O comando de start depende de arquivos ou binários gerados.
+- A aplicação deve escutar em `0.0.0.0`.
+- A porta usada pelo servidor deve bater com a porta interna configurada no projeto.
+- Evite processos em background; mantenha 1 processo principal no `CMD`.
 
-## Exemplo Node.js
+## Exemplo (Node.js)
 
-```dockerfile
+```Dockerfile
 FROM node:20-alpine
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
+
 COPY . .
 RUN npm run build
+
+ENV NODE_ENV=production
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
 ```
 
-## Exemplo Python
+## Quando preferir `ambarks.json`
 
-```dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 8000
-CMD ["python", "main.py"]
-```
-
-## Boas práticas
-
-- Use `EXPOSE` com a porta em que a aplicação escuta.
-- Configure o projeto no dashboard with a mesma porta.
-- Não escute apenas em `localhost`; use `0.0.0.0`.
-- Adicione `.dockerignore` para evitar arquivos pesados.
-- Prefira lockfiles para builds previsíveis.
-
-## Dockerfile em outro caminho
-
-Se o Dockerfile não estiver na raiz, informe o caminho no campo de Dockerfile do projeto, por exemplo:
-
-```text
-docker/Dockerfile
-```
+Se você só precisa ajustar comandos de install/build/start, normalmente `ambarks.json` é mais simples.
 
 ## Links relacionados
 
 - [Runtimes suportados](/projetos/runtimes)
 - [Como usar ambarks.json](/projetos/ambarks-json)
 - [Portas e domínios](/projetos/portas-dominios)
+

@@ -3,7 +3,7 @@ title: "Variáveis de ambiente"
 description: "Configure secrets e parâmetros usados pela aplicação."
 ---
 
-# <Icon icon="code" color="#0516ee" size={30} /> Variáveis de Ambiente
+# <Icon icon="code" color="#0516ee" size={30} /> Variáveis de ambiente
 
 Variáveis de ambiente servem para configurar sua aplicação sem colocar dados sensíveis no código. Use para URLs, tokens, credenciais, flags e configurações por ambiente.
 
@@ -16,6 +16,11 @@ Variáveis de ambiente servem para configurar sua aplicação sem colocar dados 
 5. Marque como secret quando o valor for sensível.
 6. Salve e faça um novo deploy para aplicar.
 
+## Limites e validações
+
+- Você pode salvar até **100 variáveis** por projeto por requisição em lote.
+- Chaves aceitam apenas letras/números/underscore (regex): `^[A-Z0-9_]+$` (case-insensitive).
+
 ## Campos
 
 | Campo | Descrição |
@@ -24,6 +29,18 @@ Variáveis de ambiente servem para configurar sua aplicação sem colocar dados 
 | Valor | Conteúdo usado pela aplicação |
 | Secret | Mascara o valor no dashboard |
 | Build arg | Disponibiliza a variável durante o build quando necessário |
+
+## Variáveis reservadas (evite sobrescrever)
+
+Algumas variáveis são usadas com frequência pela plataforma e/ou por runtimes. Evite criar variáveis com o mesmo nome **com valores incompatíveis**:
+
+| Variável | Observação |
+| --- | --- |
+| `PORT` | Deve bater com a porta interna do projeto; muitos exemplos usam `process.env.PORT` |
+| `NODE_ENV` | Comum em Node.js (`production`, `development`) |
+| `PYTHONUNBUFFERED` | Útil para logs em tempo real em Python |
+
+Se você não tiver certeza se um nome é reservado no seu plano/ambiente, prefira nomes com prefixo do seu app (ex.: `MYAPP_...`).
 
 ## Boas práticas
 

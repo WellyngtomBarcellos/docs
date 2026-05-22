@@ -13,10 +13,21 @@ Cada deploy bem-sucedido deixa sua aplicação rodando em um container. Pelo das
 | --- | --- |
 | Iniciar | Quando o container está parado |
 | Parar | Para interromper a aplicação |
-| Reiniciar | Para aplicar uma correção temporária ou recuperar o processo |
+| Reiniciar | Para recuperar o processo ou aplicar uma correção temporária |
 | Pausar | Para suspender a execução sem remover |
 | Retomar | Para voltar de uma pausa |
 | Remover | Para limpar um container que não será mais usado |
+
+## Reinício, deploy e persistência
+
+- **Reiniciar**: tenta iniciar novamente o processo atual (sem trocar código).
+- **Novo deploy**: reconstrói/atualiza a aplicação (código, dependências, imagem e variáveis, quando aplicável).
+
+Evite depender de arquivos gravados no filesystem do container como “armazenamento definitivo”. Para dados persistentes, prefira banco de dados externo, object storage ou outro serviço apropriado.
+
+## Quando o container “cai”
+
+Se o processo principal encerrar (por erro, falta de memória, exceção etc.), o container pode ficar parado ou reiniciar conforme a política do ambiente/plano. Sempre use os logs para identificar o motivo do exit antes de apenas reiniciar.
 
 ## Quando fazer novo deploy
 
@@ -31,9 +42,8 @@ Reiniciar não troca código, variáveis nem imagem. Faça novo deploy quando:
 ## Boas práticas
 
 - Use logs antes de reiniciar para entender o erro.
-- Evite depender de arquivos gravados dentro do container.
-- Configure variáveis e arquivos persistentes fora do código quando possível.
 - Se o container para logo após iniciar, revise o comando de start.
+- Confirme se a aplicação escuta em `0.0.0.0` e na porta interna configurada.
 
 ## Links relacionados
 

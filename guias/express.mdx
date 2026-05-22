@@ -1,0 +1,45 @@
+---
+title: "Express (Node.js)"
+description: "Deploy de API Express com porta correta e ambarks.json."
+---
+
+# <Icon icon="cloud" color="#0516ee" size={30} /> Express (Node.js)
+
+## Requisitos
+
+- Sua API deve escutar em `0.0.0.0`.
+- Use `process.env.PORT` quando possível.
+
+## Exemplo de `server.js`
+
+```js
+import express from "express";
+
+const app = express();
+const port = Number(process.env.PORT ?? 3000);
+
+app.get("/", (req, res) => res.json({ ok: true }));
+
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Listening on 0.0.0.0:${port}`);
+});
+```
+
+## Exemplo de `ambarks.json`
+
+```json
+{
+  "build": {
+    "installCommand": "npm ci"
+  },
+  "run": {
+    "command": "node server.js"
+  }
+}
+```
+
+## Configurações no dashboard
+
+- Porta interna: `3000` (ou a porta que seu app usa via `PORT`)
+- Variáveis: configure secrets em [variáveis de ambiente](/projetos/variaveis-ambiente)
+

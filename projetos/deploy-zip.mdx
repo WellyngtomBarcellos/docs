@@ -3,7 +3,7 @@ title: "Deploy via ZIP"
 description: "Envie um arquivo compactado pelo dashboard."
 ---
 
-# <Icon icon="cloud" color="#0516ee" size={30} /> Como fazer deploy em ZIP file
+# <Icon icon="cloud" color="#0516ee" size={30} /> Como fazer deploy via ZIP
 
 O deploy via ZIP é indicado para testes rápidos, protótipos e projetos que ainda não estão conectados ao GitHub.
 
@@ -13,7 +13,7 @@ O ZIP deve conter o código do projeto e os arquivos necessários para instalar,
 
 Estrutura recomendada:
 
-```shellscript
+```text
 meu-projeto.zip
   package.json
   package-lock.json
@@ -23,7 +23,7 @@ meu-projeto.zip
 
 Também pode existir uma única pasta raiz dentro do ZIP:
 
-```shellscript
+```text
 meu-projeto.zip
   meu-projeto/
     package.json
@@ -46,6 +46,10 @@ meu-projeto.zip
 4. Confirme as configurações de memória, porta e runtime.
 5. Clique em `Criar & Deploy`.
 6. Abra os logs para acompanhar o progresso.
+
+## Limite de tamanho do ZIP
+
+- Tamanho máximo por upload: **100 MB**
 
 ## Quando usar `ambarks.json`
 

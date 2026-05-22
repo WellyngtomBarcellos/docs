@@ -5,7 +5,7 @@ description: "Entenda memória disponível, planos e limites de projeto."
 
 # <Icon icon="money-bill-simple-wave" color="#0516ee" size={30} /> Planos e limites por usuário
 
-Cada projeto usa parte da memória disponível na sua conta. Ao criar ou alterar um projeto, escolha um limite de RAM compatível com o plano.
+Cada projeto usa parte da memória disponível na sua conta. Ao criar ou alterar um projeto, escolha um limite de RAM compatível com o seu plano.
 
 ## Memória do projeto
 
@@ -19,6 +19,35 @@ Exemplos:
 | API simples | 256 MB a 512 MB |
 | App com build Node.js | 512 MB ou mais |
 | Aplicação com processamento pesado | 1 GB ou mais |
+
+## Limites (o que existe e onde ver)
+
+Os limites abaixo refletem o comportamento implementado no backend (planos + validações).
+
+## Planos (RAM total da conta)
+
+Essa RAM é **global** (soma da memória alocada em todos os seus projetos).
+
+| Plano | Limite total |
+| --- | --- |
+| Hobby | 512 MB |
+| Starter | 1 GB (1024 MB) |
+| Pro 2 | 2 GB (2048 MB) |
+| Pro 4 | 4 GB (4096 MB) |
+| Super 6 | 6 GB (6144 MB) |
+| Extreme 8 | 8 GB (8192 MB) |
+
+## Validações e limites técnicos
+
+| Item | O que significa |
+| --- | --- |
+| Memória total da conta | Soma máxima de RAM que você pode alocar entre projetos |
+| Memória por projeto | Mínimo `128 MB` e máximo `32768 MB` por projeto |
+| Número de projetos | Quantidade máxima de projetos ativos |
+| Tamanho máximo de upload ZIP | Até `100 MB` por upload `.zip` |
+| Timeout de deploy | Até `15 minutos` por tentativa de deploy |
+
+Observação: o limite de “número de projetos” depende do seu plano/ambiente, mas o controle de RAM é aplicado como quota global.
 
 ## Uso da conta
 

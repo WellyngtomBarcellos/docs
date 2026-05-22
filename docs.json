@@ -39,11 +39,23 @@
         ]
       },
       {
-        "group": "Gerencie sua aplicacao",
+        "group": "Gerencie sua aplicação",
         "pages": [
           "projetos/logs-metricas",
           "projetos/containers",
           "projetos/billing-limites"
+        ]
+      },
+      {
+        "group": "Guias por stack",
+        "pages": [
+          "guias/visao-geral",
+          "guias/discord-bot-node",
+          "guias/express",
+          "guias/vite",
+          "guias/nextjs",
+          "guias/fastapi",
+          "guias/flask"
         ]
       },
       {
@@ -56,7 +68,7 @@
       }
     ]
   },
-  "description": "Plataforma de hospedagens de aplicativos web",
+  "description": "Plataforma de deploy e hospedagem de aplicações web",
   "logo": "/images/logo-color-complete-2.png",
   "background": {
     "decoration": "grid",

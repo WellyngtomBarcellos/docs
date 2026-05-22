@@ -1,0 +1,31 @@
+---
+title: "FastAPI"
+description: "Deploy com uvicorn, host 0.0.0.0 e porta correta."
+---
+
+# <Icon icon="cloud" color="#0516ee" size={30} /> FastAPI
+
+## Exemplo de `requirements.txt`
+
+```text
+fastapi
+uvicorn[standard]
+```
+
+## Exemplo de `ambarks.json`
+
+```json
+{
+  "build": {
+    "installCommand": "pip install --no-cache-dir -r requirements.txt"
+  },
+  "run": {
+    "command": "uvicorn main:app --host 0.0.0.0 --port 8000"
+  }
+}
+```
+
+## Configurações no dashboard
+
+- Porta interna: `8000`
+

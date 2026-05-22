@@ -1,0 +1,29 @@
+---
+title: "Vite (site estático)"
+description: "Build + preview com porta e host corretos."
+---
+
+# <Icon icon="cloud" color="#0516ee" size={30} /> Vite (site estático)
+
+Vite normalmente exige build. Uma forma simples é usar `vite preview` como servidor.
+
+## Exemplo de `ambarks.json`
+
+```json
+{
+  "build": {
+    "installCommand": "npm ci",
+    "buildCommand": "npm run build"
+  },
+  "run": {
+    "command": "npm run preview -- --host 0.0.0.0 --port 4173"
+  }
+}
+```
+
+## Configurações no dashboard
+
+- Porta interna: `4173`
+
+Se você preferir servir a pasta `dist/` com outro servidor (nginx, node etc.), use Dockerfile.
+

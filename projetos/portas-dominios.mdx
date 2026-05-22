@@ -9,19 +9,19 @@ Para uma aplicação ficar acessível, o AmbarksCloud precisa saber em qual port
 
 ## Porta interna
 
-A porta interna é a porta usada pela aplicação dentro do ambiente de deploy. Ela deve bater com o comando de start ou com o `EXPOSE` do Dockerfile.
+A porta interna é a porta usada pela aplicação dentro do ambiente de deploy. Ela deve bater com o comando de start (ou com o `EXPOSE` do Dockerfile).
 
 Exemplos:
 
 | Aplicação | Porta comum |
 | --- | --- |
-| Express, Next custom server, NestJS | `3000` |
+| Express, Next (custom server), NestJS | `3000` |
 | FastAPI, Flask, Django | `8000` |
 | Rust web server | `8080` |
 | PHP built-in server | `8000` |
 | Site estático | `80` |
 
-## Escute em 0.0.0.0
+## Escute em `0.0.0.0`
 
 Sua aplicação deve escutar em `0.0.0.0`. Se ela escutar apenas em `localhost` ou `127.0.0.1`, pode iniciar corretamente, mas não receber tráfego externo.
 
@@ -35,7 +35,7 @@ app.listen(3000, "0.0.0.0");
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-## Usando variável PORT
+## Usando a variável `PORT`
 
 Muitos projetos leem a porta por variável de ambiente:
 
@@ -43,7 +43,10 @@ Muitos projetos leem a porta por variável de ambiente:
 const port = process.env.PORT || 3000;
 ```
 
-Nesse caso, configure `PORT` nas variáveis do projeto e use a mesma porta no campo de porta interna.
+Nesse caso:
+
+- Configure `PORT` nas variáveis do projeto.
+- Use o mesmo valor no campo de porta interna.
 
 ## Domínios
 
@@ -66,3 +69,4 @@ Depois que o deploy estiver em execução, use a URL exibida no dashboard para a
 - [Criando projetos](/projetos/criando-projetos)
 - [Dockerfile personalizado](/projetos/dockerfile)
 - [Variáveis de ambiente](/projetos/variaveis-ambiente)
+

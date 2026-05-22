@@ -11,7 +11,7 @@ Logs e métricas ajudam a entender se o deploy funcionou, se a aplicação inici
 
 Use os logs de deploy para acompanhar:
 
-- Download ou leitura do código enviado.
+- Download/leitura do código enviado.
 - Instalação de dependências.
 - Build da aplicação.
 - Criação da imagem.
@@ -39,15 +39,23 @@ As métricas ajudam a acompanhar o consumo de:
 | RAM | Mostra memória usada pela aplicação |
 | Rede | Ajuda a observar tráfego |
 
-## Como diagnosticar
+## Reinício e “health check” (como interpretar)
 
-1. Se o deploy falhou, leia os logs de deploy de cima para baixo.
-2. Se o deploy concluiu mas o site não abre, confira logs da aplicação e porta interna.
-3. Se a aplicação reinicia ou para, veja se há erro logo após o comando de start.
-4. Se falta configuração, revise as variáveis de ambiente.
+Se sua aplicação encerrar o processo (exit), ela será marcada como parada e poderá exigir reinício. Na prática:
+
+- Se o log “morre” logo após o start, geralmente é erro de comando, variável ausente ou exceção.
+- Se a aplicação “sobe” mas não responde, geralmente é porta interna errada ou bind em `127.0.0.1`.
+
+Use esta rotina de diagnóstico:
+
+1. Confira a **porta interna** do projeto.
+2. Confira se o app escuta em **`0.0.0.0`**.
+3. Revise variáveis de ambiente e se houve **novo deploy** após alterá-las.
+4. Procure por mensagens de erro específicas nos logs (veja troubleshooting).
 
 ## Links relacionados
 
 - [Portas e domínios](/projetos/portas-dominios)
 - [Variáveis de ambiente](/projetos/variaveis-ambiente)
 - [Erros comuns](/troubleshooting/common-errors)
+

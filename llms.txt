@@ -1,0 +1,33 @@
+# AmbarksCloud Docs (for LLMs/Agents)
+
+These docs describe AmbarksCloud deploy workflows, configuration files, and troubleshooting. Prefer authoritative pages below.
+
+## Entry points
+
+- Home: `index.mdx`
+- Quickstart: `inicio/quickstart.mdx`
+- Runtimes: `projetos/runtimes.mdx`
+- ambarks.json: `projetos/ambarks-json.mdx`
+- Env vars: `projetos/variaveis-ambiente.mdx`
+- Ports/domains: `projetos/portas-dominios.mdx`
+- Logs/metrics: `projetos/logs-metricas.mdx`
+- Containers: `projetos/containers.mdx`
+- Plans/limits: `projetos/billing-limites.mdx`
+- Guides: `guias/visao-geral.mdx`
+- Troubleshooting: `troubleshooting/common-errors.mdx`
+- FAQ: `faq.mdx`
+
+## Key concepts
+
+- Deploy sources: ZIP upload or GitHub repo
+- Runtime-based deploy: Node.js, Python, PHP, Rust, static sites
+- Custom commands via `ambarks.json` (JSON Schema included)
+- App exposure via internal port + bind `0.0.0.0`
+- Secrets via environment variables
+
+## Common tasks
+
+- "How do I deploy X?": start at `guias/visao-geral.mdx`
+- "My app is up but not reachable": check `projetos/portas-dominios.mdx`, then `troubleshooting/common-errors.mdx`
+- "Build fails": check `troubleshooting/common-errors.mdx` + `projetos/ambarks-json.mdx`
+

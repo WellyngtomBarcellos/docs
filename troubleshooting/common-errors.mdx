@@ -3,7 +3,7 @@ title: "Erros comuns"
 description: "Como resolver falhas frequentes de deploy."
 ---
 
-# <Icon icon="code" color="#0516ee" size={30} /> Evite erros
+# <Icon icon="code" color="#0516ee" size={30} /> Troubleshooting
 
 Use esta página para diagnosticar problemas comuns ao publicar uma aplicação.
 
@@ -16,6 +16,8 @@ O que fazer:
 - Tente iniciar um novo deploy.
 - Se persistir, entre em contato com o suporte informando o nome do projeto.
 
+Observação: o job de deploy tem timeout de **15 minutos** por tentativa. Se estourar, o deploy tende a falhar e você verá o motivo nos logs.
+
 ## Build falhou
 
 Verifique:
@@ -24,6 +26,15 @@ Verifique:
 - Lockfiles estão presentes quando usados pelo projeto.
 - O comando de instalação em `ambarks.json` funciona localmente.
 - O projeto não depende de arquivos que ficaram fora do ZIP ou do repositório.
+
+Mensagens comuns e causas prováveis:
+
+| Erro (exemplo) | Causa provável | Como resolver |
+| --- | --- | --- |
+| `npm ERR! missing script: build` | Seu `package.json` não tem `build` | Ajuste `buildCommand` ou adicione script `build` |
+| `sh: pnpm: not found` | `pnpm` não está disponível no ambiente | Use `npm ci`/`npm run ...` ou Dockerfile |
+| `pip: command not found` | Runtime/config errado | Selecione runtime Python ou use Dockerfile |
+| `Request Entity Too Large` / upload falha | ZIP acima do limite | Reduza o `.zip` (máximo **100 MB**) |
 
 ## Comando de start falhou
 
@@ -34,6 +45,14 @@ Verifique:
 - Arquivo de entrada, como `main.py`, `server.js` ou equivalente.
 - Variáveis de ambiente exigidas pela aplicação.
 
+Mensagens comuns e causas prováveis:
+
+| Erro (exemplo) | Causa provável | Como resolver |
+| --- | --- | --- |
+| `Error: Cannot find module '...'` | Dependências não instaladas ou caminho errado | Confirme `installCommand` e paths; confira `package.json` |
+| `ModuleNotFoundError: ...` | Dependência Python ausente | Confira `requirements.txt` e `pip install -r requirements.txt` |
+| `Permission denied` | Execução de binário/arquivo sem permissão | Prefira comandos via `node`, `python`, `bash -lc`, ou Dockerfile |
+
 ## Deploy conclui, mas site não abre
 
 Verifique:
@@ -41,7 +60,14 @@ Verifique:
 - Porta interna configurada no projeto.
 - Porta usada pelo comando de start.
 - `EXPOSE` no Dockerfile, se houver.
-- Se a aplicação escuta em `0.0.0.0`.
+- Se a aplicação escuta em `0.0.0.0` (e não em `127.0.0.1`).
+
+Mensagens comuns e causas prováveis:
+
+| Sintoma | Causa provável | Como resolver |
+| --- | --- | --- |
+| Logs mostram “Listening on 127.0.0.1:3000” | Bind em localhost | Mude para `0.0.0.0` |
+| URL abre, mas dá timeout | Porta interna incorreta | Alinhe porta interna + `PORT` + start |
 
 ## Variável de ambiente não aparece
 
@@ -50,7 +76,7 @@ Verifique:
 - Se a variável foi salva no projeto correto.
 - Se houve novo deploy após a alteração.
 - Se o nome da variável está igual ao esperado pelo código.
-- Se ela precisa estar disponível durante o build.
+- Se ela precisa estar disponível durante o build (use “Build arg”).
 
 ## Repositório GitHub não publica
 
@@ -66,3 +92,4 @@ Verifique:
 - [Logs e métricas](/projetos/logs-metricas)
 - [Portas e domínios](/projetos/portas-dominios)
 - [Como usar ambarks.json](/projetos/ambarks-json)
+

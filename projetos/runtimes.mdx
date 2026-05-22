@@ -5,11 +5,11 @@ description: "Linguagens e formatos que o AmbarksCloud consegue publicar automat
 
 # <Icon icon="cloud" color="#0516ee" size={30} /> Runtimes suportados
 
-Quando seu projeto não tem Dockerfile, o AmbarksCloud tenta preparar o deploy usando o runtime escolhido no dashboard ou detectado pelos arquivos do projeto.
+Quando seu projeto não tem Dockerfile, o AmbarksCloud tenta preparar o deploy usando o runtime escolhido no dashboard (ou detectado pelos arquivos do projeto).
 
 ## Tabela de runtimes
 
-| Runtime | Como costuma ser detectado | Porta comum | Comando padrão |
+| Runtime | Como costuma ser detectado | Porta comum | Comando padrão (exemplo) |
 | --- | --- | --- | --- |
 | Node.js | `package.json` | `3000` | `npm start` |
 | Python | runtime `python` | `8000` | `python main.py` |
@@ -17,9 +17,28 @@ Quando seu projeto não tem Dockerfile, o AmbarksCloud tenta preparar o deploy u
 | PHP | runtime `php` | `8000` | `php -S 0.0.0.0:8000 -t public` |
 | Site estático | `index.html` | `80` | servidor estático |
 
+## Versões de Node/Python (como confirmar)
+
+Quando o AmbarksCloud precisa gerar um Dockerfile automaticamente (porque não existe um `Dockerfile` no projeto), o backend usa as imagens base abaixo:
+
+| Runtime | Imagem base |
+| --- | --- |
+| Node.js | `node:22-alpine` |
+| Python | `python:3.11-slim` |
+| PHP | `php:8.2-cli` |
+
+Se você precisa fixar outra versão (ou instalar pacotes do sistema), prefira **Dockerfile**.
+
+Para confirmar o que está rodando no seu container, você pode imprimir versão no start:
+
+- Verifique os logs de deploy (geralmente mostram a versão do runtime).
+- Se necessário, adicione um comando que imprima versão no início do start, por exemplo:
+  - Node.js: `node -v`
+  - Python: `python --version`
+
 ## Node.js
 
-Tenha um `package.json` com script `start`.
+Tenha um `package.json` com script `start`:
 
 ```json
 {
@@ -34,7 +53,7 @@ Se precisar rodar build antes do start, configure `ambarks.json`.
 
 ## Python
 
-O padrão espera um arquivo `main.py`.
+O padrão espera um arquivo `main.py`:
 
 ```text
 python-app/
@@ -54,7 +73,7 @@ O padrão publica usando a pasta `public`. Se seu projeto usa outra pasta ou fra
 
 ## Site estático
 
-Projetos com `index.html` podem ser publicados como site estático. Para projetos com build, como Vite ou Astro, use `ambarks.json` para gerar a pasta final ou Dockerfile para controlar o processo.
+Projetos com `index.html` podem ser publicados como site estático. Para projetos com build (Vite, Astro etc.), use `ambarks.json` para gerar a pasta final ou Dockerfile para controlar o processo.
 
 ## Quando escolher Dockerfile
 
@@ -67,6 +86,7 @@ Use Dockerfile quando:
 
 ## Links relacionados
 
+- [Guias por stack](/guias/visao-geral)
 - [Como usar ambarks.json](/projetos/ambarks-json)
 - [Dockerfile personalizado](/projetos/dockerfile)
 - [Deploy via ZIP](/projetos/deploy-zip)

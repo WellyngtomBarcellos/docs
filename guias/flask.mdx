@@ -1,0 +1,33 @@
+---
+title: "Flask"
+description: "Deploy com flask/ gunicorn e bind correto."
+---
+
+# <Icon icon="cloud" color="#0516ee" size={30} /> Flask
+
+Para produção, prefira gunicorn.
+
+## Exemplo de `requirements.txt`
+
+```text
+flask
+gunicorn
+```
+
+## Exemplo de `ambarks.json` (gunicorn)
+
+```json
+{
+  "build": {
+    "installCommand": "pip install --no-cache-dir -r requirements.txt"
+  },
+  "run": {
+    "command": "gunicorn -b 0.0.0.0:8000 app:app"
+  }
+}
+```
+
+## Configurações no dashboard
+
+- Porta interna: `8000`
+

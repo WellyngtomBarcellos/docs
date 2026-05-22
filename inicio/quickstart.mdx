@@ -17,16 +17,15 @@ Antes de enviar, confira:
 
 | Item | Recomendação |
 | --- | --- |
-| Comando de start | Tenha um comando que inicie a aplicação |
+| Comando de start | Tenha um comando que mantenha a aplicação rodando |
 | Porta | A aplicação deve escutar em `0.0.0.0` na porta configurada |
-| Dependências | Inclua arquivos como `package-lock.json`, `requirements.txt` ou equivalentes |
+| Dependências | Inclua arquivos como `package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`, `requirements.txt` ou equivalentes |
 | Arquivos locais | Remova `node_modules`, `.git`, caches e builds desnecessários do ZIP |
 
 ## 2. Escolha o formato de envio
 
-Use **Arquivo ZIP** quando quiser testar rápido ou enviar código sem conectar repositório.
-
-Use **GitHub Repo** quando quiser publicar a partir de uma branch e facilitar novos deploys.
+- Use **Arquivo ZIP** quando quiser testar rápido ou enviar código sem conectar repositório.
+- Use **GitHub Repo** quando quiser publicar a partir de uma branch e facilitar novos deploys.
 
 ## 3. Crie o projeto
 
@@ -44,7 +43,7 @@ Abra a área de logs do projeto para ver cada etapa do deploy. Se algo falhar, o
 
 ## 5. Ajuste quando necessário
 
-Se o AmbarksCloud não detectar o projeto corretamente, adicione um arquivo [`ambarks.json`](/projetos/ambarks-json) na raiz com comandos explícitos de instalação, build e start. Veja o guia [Como usar ambarks.json](/projetos/ambarks-json) para entender o que ele faz e quais campos preencher.
+Se o AmbarksCloud não detectar o projeto corretamente, adicione um arquivo [`ambarks.json`](/projetos/ambarks-json) na raiz com comandos explícitos de instalação, build e start.
 
 ## Links relacionados
 
@@ -52,3 +51,4 @@ Se o AmbarksCloud não detectar o projeto corretamente, adicione um arquivo [`am
 - [Deploy via ZIP](/projetos/deploy-zip)
 - [Deploy via GitHub](/projetos/deploy-github)
 - [Como usar ambarks.json](/projetos/ambarks-json)
+

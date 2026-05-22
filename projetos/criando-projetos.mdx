@@ -5,7 +5,7 @@ description: "Configure uma aplicação no dashboard antes do deploy."
 
 # <Icon icon="file" color="#0516ee" size={30} /> Seu projeto
 
-Um projeto representa uma aplicação que será publicada no AmbarksCloud. Nele você define nome, forma de envio, memória, porta, variáveis e configurações de build.
+Um projeto representa uma aplicação que será publicada no AmbarksCloud. Nele você define nome, forma de envio, memória, porta interna, variáveis e configurações de build.
 
 ## Criar pelo dashboard
 
@@ -19,40 +19,21 @@ Um projeto representa uma aplicação que será publicada no AmbarksCloud. Nele 
 
 ## Campos importantes
 
-| Campo | Quando usar |
+| Campo | Dica |
 | --- | --- |
-| Nome | Identifica o projeto no dashboard |
-| Memória | Define quanto de RAM a aplicação pode usar |
-| Porta interna | Porta em que sua aplicação escuta dentro do container |
-| Runtime | Linguagem/ambiente usado quando não há Dockerfile |
-| Dockerfile | Caminho do Dockerfile, se você usar um arquivo personalizado |
-| Repositório | Projeto GitHub usado no deploy por branch |
-| Branch | Branch usada para publicar o projeto |
+| Memória | Comece com um valor seguro; aumente se o build falhar |
+| Runtime | Se o runtime não for detectado, selecione manualmente |
+| Porta interna | Deve bater com a porta do servidor dentro do container |
+| Variáveis | Secrets devem ficar em [variáveis de ambiente](/projetos/variaveis-ambiente) |
 
-## Porta interna
+## Limites importantes
 
-A porta interna deve ser a mesma porta usada pela aplicação. Exemplos comuns:
-
-| Tipo de projeto | Porta comum |
-| --- | --- |
-| Node.js | `3000` |
-| Python | `8000` |
-| Rust | `8080` |
-| PHP | `8000` |
-| Site estático | `80` |
-
-Se o deploy concluir mas o site não abrir, a porta interna é uma das primeiras configurações a revisar.
-
-## Antes do primeiro deploy
-
-- Rode o projeto localmente para confirmar que o comando de start funciona.
-- Garanta que a aplicação escute em `0.0.0.0`, não apenas em `localhost`.
-- Adicione `ambarks.json` se precisar informar comandos diferentes do padrão.
-- Use Dockerfile se seu projeto exigir dependências ou passos muito específicos.
+- Memória por projeto: mínimo `128 MB` e máximo `32768 MB`.
+- Deploy via ZIP: tamanho máximo do `.zip` é **100 MB**.
 
 ## Links relacionados
 
+- [Guia rápido](/inicio/quickstart)
 - [Deploy via ZIP](/projetos/deploy-zip)
 - [Deploy via GitHub](/projetos/deploy-github)
 - [Portas e domínios](/projetos/portas-dominios)
-- [Como usar ambarks.json](/projetos/ambarks-json)

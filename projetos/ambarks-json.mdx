@@ -1,9 +1,9 @@
 ---
-title: "Comandos de inicialização"
+title: "ambarks.json"
 description: "Configure comandos de instalação, build e start do seu projeto."
 ---
 
-# <Icon icon="golf-flag-hole" color="#0516ee" size={30} /> Criando um ambarks.json
+# <Icon icon="golf-flag-hole" color="#0516ee" size={30} /> Como usar `ambarks.json`
 
 O arquivo `ambarks.json` permite dizer ao AmbarksCloud como preparar e iniciar seu projeto quando o comportamento automático não é suficiente.
 
@@ -27,38 +27,62 @@ Também é aceito o nome `ambarks.config.json`.
     "buildCommand": "npm run build"
   },
   "run": {
-    "command": "npx tsx src/index.ts"
-  }
-}
-```
-
-## Campos aceitos
-
-| Campo | Uso |
-| --- | --- |
-| `build.installCommand` | Comando para instalar dependências |
-| `build.install` | Atalho alternativo para comando de instalação |
-| `build.buildCommand` | Comando para gerar build |
-| `build.command` | Atalho alternativo para comando de build |
-| `run.command` | Comando usado para iniciar a aplicação |
-
-## Exemplos por runtime
-
-### Node.js
-
-```json
-{
-  "build": {
-    "installCommand": "npm ci",
-    "buildCommand": "npm run build"
-  },
-  "run": {
     "command": "npm run start"
   }
 }
 ```
 
-### Python com FastAPI
+## Campos (resumo)
+
+| Campo | Obrigatório | Uso |
+| --- | --- | --- |
+| `build.installCommand` | não | Comando para instalar dependências |
+| `build.install` | não | Atalho alternativo para comando de instalação |
+| `build.buildCommand` | não | Comando para gerar build |
+| `build.command` | não | Atalho alternativo para comando de build |
+| `run.command` | sim | Comando usado para iniciar a aplicação |
+
+## Regras importantes
+
+- O JSON precisa ser válido.
+- O arquivo deve estar na raiz do projeto enviado.
+- O comando de start deve manter o processo rodando.
+- Servidores web devem escutar em `0.0.0.0`.
+- A porta usada pelo comando deve bater com a porta interna configurada no projeto.
+
+## Exemplos por stack
+
+### Discord bot (Node.js)
+
+Para bots, o mais importante é: processo em execução e logs claros (não há porta HTTP).
+
+```json
+{
+  "build": {
+    "installCommand": "npm ci"
+  },
+  "run": {
+    "command": "node src/bot.js"
+  }
+}
+```
+
+Veja: [Deploy de bot Discord (Node.js)](/guias/discord-bot-node).
+
+### Express (Node.js)
+
+```json
+{
+  "build": {
+    "installCommand": "npm ci"
+  },
+  "run": {
+    "command": "node server.js"
+  }
+}
+```
+
+### FastAPI (Python)
 
 ```json
 {
@@ -71,7 +95,7 @@ Também é aceito o nome `ambarks.config.json`.
 }
 ```
 
-### Site estático com build
+### Site estático com build (Vite)
 
 ```json
 {
@@ -80,18 +104,39 @@ Também é aceito o nome `ambarks.config.json`.
     "buildCommand": "npm run build"
   },
   "run": {
-    "command": "npm run preview -- --host 0.0.0.0"
+    "command": "npm run preview -- --host 0.0.0.0 --port 4173"
   }
 }
 ```
 
-## Regras importantes
+## Exemplos inválidos (e por quê)
 
-- O JSON precisa ser válido.
-- O arquivo deve estar na raiz do projeto enviado.
-- O comando de start deve manter o processo rodando.
-- Servidores web devem escutar em `0.0.0.0`.
-- A porta usada pelo comando deve bater com a porta interna configurada no projeto.
+### JSON inválido
+
+```json
+{ "run": { "command": "npm start", } }
+```
+
+Motivo: vírgula extra.
+
+### Campo desconhecido
+
+```json
+{
+  "run": { "command": "npm start" },
+  "startCommand": "npm start"
+}
+```
+
+Motivo: `startCommand` não é um campo reconhecido.
+
+### `run.command` vazio
+
+```json
+{ "run": { "command": "" } }
+```
+
+Motivo: o comando precisa ser uma string não vazia.
 
 ## Quando não usar
 
@@ -99,6 +144,6 @@ Se seu projeto precisa instalar pacotes do sistema, copiar arquivos para pastas 
 
 ## Links relacionados
 
-- [Runtimes suportados](/projetos/runtimes)
+- [Guias por stack](/guias/visao-geral)
 - [Dockerfile personalizado](/projetos/dockerfile)
 - [Portas e domínios](/projetos/portas-dominios)

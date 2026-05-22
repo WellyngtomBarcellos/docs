@@ -6,7 +6,7 @@ description: "Conheça a AmbarksCloud e aprenda como publicar aplicações sem c
 # <Icon icon="cloud" color="#0516ee" size={30} /> **AmbarksCloud** Center
 
 A **AmbarksCloud** é uma plataforma de deploy e hospedagem focada em simplificar a publicação de aplicações modernas.\
-Nosso objetivo é permitir que desenvolvedores publiquem projetos em segundos, sem precisar configurar servidores, proxies reversos, Docker manualmente ou pipelines complexas de infraestrutura.
+Nosso objetivo é permitir que desenvolvedores publiquem projetos em segundos, sem precisar configurar servidores, proxies reversos, Docker manualmente ou pipelines complexos de infraestrutura.
 
 Com uma interface visual simples e automatizada, você consegue criar projetos, conectar repositórios, enviar arquivos compactados, acompanhar logs em tempo real e gerenciar containers diretamente pelo dashboard.
 
@@ -18,98 +18,15 @@ Com uma interface visual simples e automatizada, você consegue criar projetos, 
 
 A AmbarksCloud automatiza todo o processo necessário para colocar uma aplicação online:
 
-<Card title="Hospedagem de Bots" icon="sparkles">
-  Envie seus bots de Discord, WhatsApp etc. da forma mais simples possível, sem precisar de complicações futuras.
+<Card title="Hospedagem de bots" icon="sparkles">
+  Envie seus bots de Discord, WhatsApp etc. da forma mais simples possível.
 </Card>
 
-<Card title="Hospedagem de Aplicações Web" icon="sparkles">
-  Aloque recursos para sua aplicação, seja ela estática ou API, e distribua globalmente através de nossa disponibilidade.
+<Card title="Hospedagem de aplicações web" icon="sparkles">
+  Aloque recursos para sua aplicação (estática ou API) e publique sem complicação.
 </Card>
 
 Isso em um único painel, pensado para desenvolvedores que querem focar no código — não na infraestrutura.
-
-## Para quem a plataforma foi criada
-
-A **_Ambarks_**_Cloud_ foi desenvolvida para:
-
-| Publico | Beneficio |
-| --- | --- |
-| Desenvolvedores independentes | Publicar projetos rapidamente |
-| Startups | Reduzir tempo de configuracao de infraestrutura |
-| Equipes pequenas | Centralizar deploys em um unico painel |
-| Criadores de SaaS | Automatizar publicacao e gerenciamento |
-| Projetos pessoais | Hospedar aplicacoes sem complexidade |
-
-## Tecnologias suportadas
-
-A plataforma possui suporte automatico para diferentes stacks modernas:
-
-| Runtime | Status |
-| --- | --- |
-| Node.js | <Icon icon="check" /> |
-| PHP | <Icon icon="check" /> |
-| Python | <Icon icon="check" /> |
-| Rust | <Icon icon="check" /> |
-| Sites estaticos | <Icon icon="check" /> |
-| Dockerfile customizado | <Icon icon="check" /> |
-
-Caso o comportamento padrao não seja suficiente, vocâ pode usar um arquivo `ambarks.json` para definir comandos personalizados de instalacao, build e start.
-
-## Como funciona o deploy
-
-O fluxo da AmbarksCloud foi projetado para ser simples:
-
-1. Crie um projeto pelo dashboard.
-2. Escolha entre enviar um **ZIP** ou conectar um repositorio do **GitHub**.
-3. Configure variaveis de ambiente e porta da aplicacao.
-4. Inicie o deploy.
-5. Acompanhe logs e metricas em tempo real.
-6. Sua aplicacao fica online automaticamente.
-
-## Recursos principais
-
-| Recurso | Descricao |
-| --- | --- |
-| Projeto | Guarda configuracoes da aplicacao publicada |
-| Deploy por ZIP | Publicacao direta pelo dashboard |
-| Deploy por GitHub | Integracao automatica com repositorios |
-| Runtimes automaticos | Detecta e prepara a aplicacao automaticamente |
-| `ambarks.json` | Permite personalizar comandos de build e start |
-| Dockerfile | Controle total do ambiente da aplicacao |
-| Variaveis de ambiente | Configuracao segura de secrets e credenciais |
-| Logs e metricas | Monitoramento em tempo real da aplicacao |
-
-## Proximos passos
-
-- [Guia rapido](/inicio/quickstart)
-- [Criando projetos](/projetos/criando-projetos)
-- [Deploy via ZIP](/projetos/deploy-zip)
-- [Deploy via GitHub](/projetos/deploy-github)
-- [Runtimes suportados](/projetos/runtimes)
-- [Como usar ambarks.json](/projetos/ambarks-json)
-
-A **AmbarksCloud** e uma plataforma de deploy e hospedagem focada em simplificar a publicacao de aplicacoes modernas.\
-Nosso objetivo e permitir que desenvolvedores publiquem projetos em segundos, sem precisar configurar servidores, proxies reversos, Docker manualmente ou pipelines complexas de infraestrutura.
-
-Com uma interface visual simples e automatizada, voce consegue criar projetos, conectar repositorios, enviar arquivos compactados, acompanhar logs em tempo real e gerenciar containers diretamente pelo dashboard.
-
-<Frame>
-  ![Wallpaper](/images/wallpaper.png)
-</Frame>
-
-## O que fazemos
-
-A AmbarksCloud automatiza todo o processo necessario para colocar uma aplicacao online:
-
-<Card title="Hospedagem de Bots" icon="sparkles">
-  Envie seus bots de Discord,Whatsapp etc da forma mais simples possivel, sem prescisar de complicações futuras.
-</Card>
-
-<Card title="Hospedagem de Aplicações Web" icon="sparkles">
-  Aloque recursos para sua aplicação, seja ela estática ou API, e distribua globalmente atravez de nossa disponibilidade.
-</Card>
-
-Isso em um unico painel, pensado para desenvolvedores que querem focar no código — não na infraestrutura.
 
 ## Para quem a plataforma foi criada
 
@@ -129,22 +46,20 @@ A plataforma possui suporte automático para diferentes stacks modernas:
 
 | Runtime | Status |
 | --- | --- |
-| Node.js | <Icon icon="check" /> |
-| PHP | <Icon icon="check" /> |
-| Python | <Icon icon="check" /> |
-| Rust | <Icon icon="check" /> |
-| Sites estáticos | <Icon icon="check" /> |
-| Dockerfile customizado | <Icon icon="check" /> |
+| Node.js | OK |
+| PHP | OK |
+| Python | OK |
+| Rust | OK |
+| Sites estáticos | OK |
+| Dockerfile customizado | OK |
 
-Caso o comportamento padrão não seja suficiente, você pode usar um arquivo `ambarks.json` para definir comandos personalizados de instalação, build e start.
+Caso o comportamento padrão não seja suficiente, use `ambarks.json` para definir comandos personalizados de instalação, build e start.
 
 ## Como funciona o deploy
 
-O fluxo da AmbarksCloud foi projetado para ser simples:
-
 1. Crie um projeto pelo dashboard.
 2. Escolha entre enviar um **ZIP** ou conectar um repositório do **GitHub**.
-3. Configure variáveis de ambiente e porta da aplicação.
+3. Configure variáveis de ambiente e a porta interna.
 4. Inicie o deploy.
 5. Acompanhe logs e métricas em tempo real.
 6. Sua aplicação fica online automaticamente.
@@ -170,3 +85,4 @@ O fluxo da AmbarksCloud foi projetado para ser simples:
 - [Deploy via GitHub](/projetos/deploy-github)
 - [Runtimes suportados](/projetos/runtimes)
 - [Como usar ambarks.json](/projetos/ambarks-json)
+- [Guias por stack](/guias/visao-geral)

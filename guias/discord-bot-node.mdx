@@ -1,0 +1,68 @@
+---
+title: "Deploy de bot Discord (Node.js)"
+description: "Exemplo completo com package.json, .env e ambarks.json."
+---
+
+# <Icon icon="cloud" color="#0516ee" size={30} /> Deploy de bot Discord (Node.js)
+
+Bots do Discord não expõem uma porta HTTP por padrão. O objetivo do deploy é manter o processo rodando e com as variáveis corretas.
+
+## Checklist
+
+- Token do bot salvo como variável de ambiente (ex.: `DISCORD_TOKEN`).
+- Intents configuradas no Discord Developer Portal e no seu código.
+- Comando de start funciona localmente.
+- Dependências e lockfile incluídos (`package-lock.json` recomendado).
+
+## Exemplo de `package.json`
+
+```json
+{
+  "name": "meu-discord-bot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.0.0"
+  }
+}
+```
+
+## Exemplo de `ambarks.json`
+
+```json
+{
+  "build": {
+    "installCommand": "npm ci"
+  },
+  "run": {
+    "command": "npm run start"
+  }
+}
+```
+
+## Variáveis de ambiente
+
+Crie no dashboard:
+
+| Chave | Exemplo |
+| --- | --- |
+| `DISCORD_TOKEN` | `***` |
+
+Se seu bot usa outros serviços (DB, APIs), adicione também as credenciais como variáveis.
+
+## Dica: log de inicialização
+
+Tenha um log explícito no boot para ficar óbvio que o bot conectou:
+
+- “Logged in as ...”
+- “Ready!”
+
+## Links relacionados
+
+- [Variáveis de ambiente](/projetos/variaveis-ambiente)
+- [Como usar ambarks.json](/projetos/ambarks-json)
+- [Troubleshooting](/troubleshooting/common-errors)
+
