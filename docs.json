@@ -3,8 +3,8 @@
   "theme": "mint",
   "name": "AmbarksCloud",
   "favicon": {
-    "light": "/favicon.ico",
-    "dark": "/favicon.ico"
+    "light": "/images/favicon.ico",
+    "dark": "/images/favicon.ico"
   },
   "colors": {
     "primary": "#2563eb",
@@ -57,7 +57,7 @@
     ]
   },
   "description": "Plataforma de hospedagens de aplicativos web",
-  "logo": "/images/AMBC-logo.png",
+  "logo": "/images/logo-color-complete-2.png",
   "background": {
     "decoration": "grid",
     "color": {
